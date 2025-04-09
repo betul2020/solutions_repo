@@ -109,6 +109,8 @@ Hyperbolic: If $v > v_2$, escapes with excess speed.
 Numerical Analysis
 Use Newton’s gravitation: $\ddot{\mathbf{r}} = -\frac{G M}{r^3} \mathbf{r}$. Initial conditions: position $\mathbf{r}_0$, velocity $\mathbf{v}_0$, altitude $h$.
 
+![alt text](image.png)
+
 Explanations
 Orbital Period: Log-log plot confirms $T^2 \propto r^3$.
 Cosmic Velocities: Bar chart compares $v_1$ and $v_2$ across bodies.
