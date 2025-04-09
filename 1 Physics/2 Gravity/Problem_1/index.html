@@ -172,6 +172,91 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<p>Orbital Period and Orbital Radius</p>
+<p>Motivation
+Kepler’s Third Law relates the square of a planet’s orbital period (<span class="arithmatex">\(T^2\)</span>) to the cube of its orbital radius (<span class="arithmatex">\(r^3\)</span>), revealing the harmony of gravitational systems. This relationship is essential for astronomy and space mission planning, enabling calculations of masses and distances.</p>
+<p>Derivation for Circular Orbits
+For a body in a circular orbit around a central mass <span class="arithmatex">\(M\)</span> (e.g., a planet around the Sun), the gravitational force provides the centripetal force:</p>
+<p><span class="arithmatex">\(\frac{G M m}{r^2} = \frac{m v^2}{r}\)</span></p>
+<p>Where:</p>
+<p><span class="arithmatex">\(G\)</span>: Gravitational constant (<span class="arithmatex">\(6.67430 \times 10^{-11}\)</span> m³ kg⁻¹ s⁻²)
+<span class="arithmatex">\(M\)</span>: Mass of the central body (kg)
+<span class="arithmatex">\(m\)</span>: Mass of the orbiting body (kg)
+<span class="arithmatex">\(r\)</span>: Orbital radius (m)
+<span class="arithmatex">\(v\)</span>: Orbital velocity (m/s)
+Simplify by canceling <span class="arithmatex">\(m\)</span> and multiplying through by <span class="arithmatex">\(r\)</span>:</p>
+<p><span class="arithmatex">\(\frac{G M}{r} = v^2\)</span></p>
+<p>The orbital velocity relates to the period <span class="arithmatex">\(T\)</span> via circumference:</p>
+<p><span class="arithmatex">\(v = \frac{2\pi r}{T}\)</span></p>
+<p>Substitute into the force equation:</p>
+<p><span class="arithmatex">\(\frac{G M}{r} = \left(\frac{2\pi r}{T}\right)^2 = \frac{4\pi^2 r^2}{T^2}\)</span></p>
+<p>Rearrange:</p>
+<p><span class="arithmatex">\(\frac{G M}{r} = \frac{4\pi^2 r^2}{T^2}\)</span></p>
+<p>Multiply both sides by <span class="arithmatex">\(T^2\)</span> and divide by <span class="arithmatex">\(r\)</span>:</p>
+<p><span class="arithmatex">\(G M T^2 = 4\pi^2 r^3\)</span></p>
+<p>Thus:</p>
+<p><span class="arithmatex">\(T^2 = \frac{4\pi^2}{G M} r^3\)</span></p>
+<p>This is Kepler’s Third Law for circular orbits, where <span class="arithmatex">\(T^2 \propto r^3\)</span>, and the constant depends on <span class="arithmatex">\(M\)</span>.</p>
+<p>Implications in Astronomy
+Mass Determination: Measure <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(r\)</span> of a satellite or moon to calculate <span class="arithmatex">\(M\)</span> of the central body.
+Distance Calculation: Known <span class="arithmatex">\(M\)</span> and <span class="arithmatex">\(T\)</span> yield <span class="arithmatex">\(r\)</span>, aiding in mapping planetary systems.
+Real-World Examples
+Moon around Earth: <span class="arithmatex">\(T = 27.32\)</span> days (<span class="arithmatex">\(2.36 \times 10^6\)</span> s), <span class="arithmatex">\(r = 384,400\)</span> km (<span class="arithmatex">\(3.844 \times 10^8\)</span> m), <span class="arithmatex">\(M_{\text{Earth}} = 5.972 \times 10^{24}\)</span> kg. Verify: <span class="arithmatex">\(T^2 \approx 5.57 \times 10^{12}\)</span> s², <span class="arithmatex">\(r^3 \approx 5.68 \times 10^{25}\)</span> m³, constant <span class="arithmatex">\(\frac{4\pi^2}{G M} \approx 9.9 \times 10^{-14}\)</span> s²/m³ matches.
+Earth around Sun: <span class="arithmatex">\(T = 1\)</span> year (<span class="arithmatex">\(3.156 \times 10^7\)</span> s), <span class="arithmatex">\(r = 1\)</span> AU (<span class="arithmatex">\(1.496 \times 10^{11}\)</span> m), <span class="arithmatex">\(M_{\text{Sun}} = 1.989 \times 10^{30}\)</span> kg.
+Extension to Elliptical Orbits
+For elliptical orbits, replace <span class="arithmatex">\(r\)</span> with the semi-major axis <span class="arithmatex">\(a\)</span>:</p>
+<p><span class="arithmatex">\(T^2 = \frac{4\pi^2}{G M} a^3\)</span></p>
+<p>This holds universally per Kepler’s Third Law.</p>
+<p>Problem 2: Escape Velocities and Cosmic Velocities
+Motivation
+Escape velocity defines the speed needed to break free from a gravitational field, while cosmic velocities extend this to orbiting and escaping larger systems, critical for space exploration.</p>
+<p>Definitions and Derivations
+First Cosmic Velocity (Orbital Velocity):
+Speed for a circular orbit at radius <span class="arithmatex">\(r\)</span>:</p>
+<p><span class="arithmatex">\(v_1 = \sqrt{\frac{G M}{r}}\)</span></p>
+<p>Derived from balancing gravitational and centripetal forces.</p>
+<p>Second Cosmic Velocity (Escape Velocity):
+Speed to escape from radius <span class="arithmatex">\(r\)</span> to infinity:</p>
+<p>Energy: <span class="arithmatex">\(\frac{1}{2} m v^2 = \frac{G M m}{r}\)</span></p>
+<p><span class="arithmatex">\(v_2 = \sqrt{\frac{2 G M}{r}} = \sqrt{2} v_1\)</span></p>
+<p>Third Cosmic Velocity:
+Speed to escape a star system (e.g., Earth escaping the Sun from its orbit). Approximate as escape from Sun’s field at 1 AU:</p>
+<p><span class="arithmatex">\(v_3 = \sqrt{\frac{2 G M_{\text{Sun}}}{r_{\text{AU}}}} \approx 42.1\)</span> km/s (from Earth’s orbit).</p>
+<p>Adjusted for Earth’s motion: <span class="arithmatex">\(v_3 \approx 16.6\)</span> km/s relative to Earth.</p>
+<p>Parameters
+<span class="arithmatex">\(M\)</span>: Mass of the body
+<span class="arithmatex">\(r\)</span>: Distance from center
+<span class="arithmatex">\(G\)</span>: Constant
+Calculations
+Earth: <span class="arithmatex">\(M = 5.972 \times 10^{24}\)</span> kg, <span class="arithmatex">\(r = 6,371\)</span> km:
+<span class="arithmatex">\(v_1 = 7.9\)</span> km/s
+<span class="arithmatex">\(v_2 = 11.2\)</span> km/s
+Mars: <span class="arithmatex">\(M = 6.417 \times 10^{23}\)</span> kg, <span class="arithmatex">\(r = 3,390\)</span> km:
+<span class="arithmatex">\(v_1 = 3.6\)</span> km/s
+<span class="arithmatex">\(v_2 = 5.0\)</span> km/s
+Jupiter: <span class="arithmatex">\(M = 1.898 \times 10^{27}\)</span> kg, <span class="arithmatex">\(r = 69,911\)</span> km:
+<span class="arithmatex">\(v_1 = 42.1\)</span> km/s
+<span class="arithmatex">\(v_2 = 59.5\)</span> km/s
+Importance in Space Exploration
+Satellites: <span class="arithmatex">\(v_1\)</span> for low Earth orbit (LEO).
+Planetary Missions: <span class="arithmatex">\(v_2\)</span> to leave Earth; <span class="arithmatex">\(v_3\)</span> for solar system escape (e.g., Voyager).
+Problem 3: Trajectories of a Freely Released Payload Near Earth
+Motivation
+A payload released from a rocket follows a trajectory shaped by initial velocity and Earth’s gravity, key to mission design.</p>
+<p>Possible Trajectories
+Elliptical: If <span class="arithmatex">\(v &lt; v_2\)</span>, orbits Earth.
+Parabolic: If <span class="arithmatex">\(v = v_2\)</span>, escapes to infinity with zero residual speed.
+Hyperbolic: If <span class="arithmatex">\(v &gt; v_2\)</span>, escapes with excess speed.
+Numerical Analysis
+Use Newton’s gravitation: <span class="arithmatex">\(\ddot{\mathbf{r}} = -\frac{G M}{r^3} \mathbf{r}\)</span>. Initial conditions: position <span class="arithmatex">\(\mathbf{r}_0\)</span>, velocity <span class="arithmatex">\(\mathbf{v}_0\)</span>, altitude <span class="arithmatex">\(h\)</span>.</p>
+<p>Explanations
+Orbital Period: Log-log plot confirms <span class="arithmatex">\(T^2 \propto r^3\)</span>.
+Cosmic Velocities: Bar chart compares <span class="arithmatex">\(v_1\)</span> and <span class="arithmatex">\(v_2\)</span> across bodies.
+Trajectory: Simulates a circular orbit; adjust <span class="arithmatex">\(v_0\)</span> for elliptical/hyperbolic paths.
+Discussion
+Elliptical Orbits: Kepler’s law adapts via semi-major axis.
+Space Exploration: Velocities guide mission design.
+Payload Trajectories: Initial conditions dictate orbit type, critical for deployment or reentry.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
