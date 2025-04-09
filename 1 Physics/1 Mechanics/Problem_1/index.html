@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Investigating the Range as a Function of the Angle of Projection - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Investigating the Range as a Function of the Angle of Projection";
         var mkdocs_page_input_path = "1 Physics/1 Mechanics/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -46,7 +46,35 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal current">1 Mechanics</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Investigating the Range as a Function of the Angle of Projection</a>
+<ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#1-theoretical-foundation">1. Theoretical Foundation</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#derivation-of-equations-of-motion">Derivation of Equations of Motion</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-analysis-of-the-range">2. Analysis of the Range</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#dependence-on-angle-theta">Dependence on Angle \(\theta\)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#influence-of-other-parameters">Influence of Other Parameters</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-practical-applications">3. Practical Applications</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-implementation">4. Implementation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#discussion-on-model-constrains">Discussion on Model Constrains</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#possible-improvements">Possible Improvements</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#final-thoughts">Final Thoughts</a>
+</li>
+</ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
 </li>
@@ -161,7 +189,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">1 Mechanics</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Investigating the Range as a Function of the Angle of Projection</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -169,7 +197,99 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<p>hello </p>
+<h1 id="investigating-the-range-as-a-function-of-the-angle-of-projection">Investigating the Range as a Function of the Angle of Projection</h1>
+<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
+<p>Projectile motion is a classic problem in mechanics that describes the motion of an object under the influence of gravity alone, neglecting air resistance initially. Let’s derive the governing equations from Newton’s second law and establish the family of solutions based on initial conditions.</p>
+<h3 id="derivation-of-equations-of-motion">Derivation of Equations of Motion</h3>
+<p>Consider a projectile launched from the origin <span class="arithmatex">\((x_0, y_0) = (0, 0)\)</span> with an initial velocity <span class="arithmatex">\(v_0\)</span> at an angle <span class="arithmatex">\(\theta\)</span> to the horizontal. The only force acting is gravity, with acceleration <span class="arithmatex">\(g\)</span> downward. We break the motion into horizontal (<span class="arithmatex">\(x\)</span>) and vertical (<span class="arithmatex">\(y\)</span>) components.</p>
+<ul>
+<li><em>Horizontal motion</em>: No acceleration, so:
+  $$
+  a_x = 0
+  $$</li>
+</ul>
+<p>Initial velocity: <span class="arithmatex">\(v_{0x} = v_0 \cos\theta\)</span>
+  Position: </p>
+<p>$$
+  x(t) = v_0 \cos\theta \cdot t
+  $$</p>
+<ul>
+<li><em>Vertical motion</em>:</li>
+</ul>
+<p>Acceleration due to gravity, <span class="arithmatex">\(a_y = -g\)</span>:</p>
+<p>Initial velocity: <span class="arithmatex">\(v_{0y} = v_0 \sin\theta\)</span>
+  Velocity: </p>
+<p>$$
+  v_y(t) = v_0 \sin\theta - g t
+  $$</p>
+<p>Position: </p>
+<p>$$
+  y(t) = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2
+  $$</p>
+<p>These are parametric equations describing a parabolic trajectory. The family of solutions depends on the free parameters: <span class="arithmatex">\(v_0\)</span> (initial speed), <span class="arithmatex">\(\theta\)</span> (angle of projection), and <span class="arithmatex">\(g\)</span> (gravitational acceleration). Varying these parameters generates different trajectories.</p>
+<h2 id="2-analysis-of-the-range">2. Analysis of the Range</h2>
+<p>The <em>range</em> <span class="arithmatex">\(R\)</span> is the horizontal distance traveled when the projectile returns to <span class="arithmatex">\(y = 0\)</span>. Set <span class="arithmatex">\(y(t) = 0\)</span> and solve for time of flight <span class="arithmatex">\(t_f\)</span>:</p>
+<div class="arithmatex">\[
+0 = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2
+\]</div>
+<p>Factorize:</p>
+<div class="arithmatex">\[
+t \left( v_0 \sin\theta - \frac{1}{2} g t \right) = 0
+\]</div>
+<p>Solutions:</p>
+<ul>
+<li><span class="arithmatex">\(t = 0\)</span> (launch)</li>
+<li><span class="arithmatex">\(t = \frac{2 v_0 \sin\theta}{g}\)</span> (landing)</li>
+</ul>
+<p>Substitute <span class="arithmatex">\(t_f = \frac{2 v_0 \sin\theta}{g}\)</span> into the horizontal equation:</p>
+<div class="arithmatex">\[
+R = x(t_f) = v_0 \cos\theta \cdot \frac{2 v_0 \sin\theta}{g}
+\]</div>
+<p>Using the identity <span class="arithmatex">\(2 \sin\theta \cos\theta = \sin 2\theta\)</span>:</p>
+<div class="arithmatex">\[
+R = \frac{v_0^2 \sin 2\theta}{g}
+\]</div>
+<h3 id="dependence-on-angle-theta">Dependence on Angle <span class="arithmatex">\(\theta\)</span></h3>
+<ul>
+<li>Range <span class="arithmatex">\(R\)</span> is maximized when <span class="arithmatex">\(\sin 2\theta = 1\)</span>, i.e., <span class="arithmatex">\(2\theta = 90^\circ\)</span>, so <span class="arithmatex">\(\theta = 45^\circ\)</span>.</li>
+<li><span class="arithmatex">\(R = 0\)</span> when <span class="arithmatex">\(\theta = 0^\circ\)</span> or <span class="arithmatex">\(\theta = 90^\circ\)</span> (no horizontal motion).</li>
+<li>The relationship is symmetric: <span class="arithmatex">\(\theta\)</span> and <span class="arithmatex">\((90^\circ - \theta)\)</span> yield the same range.</li>
+</ul>
+<h3 id="influence-of-other-parameters">Influence of Other Parameters</h3>
+<ul>
+<li><em>Initial velocity <span class="arithmatex">\(v_0\)</span></em>: <span class="arithmatex">\(R \propto v_0^2\)</span>, a quadratic increase.</li>
+<li><em>Gravitational acceleration <span class="arithmatex">\(g\)</span></em>: <span class="arithmatex">\(R \propto \frac{1}{g}\)</span>, inversely proportional.</li>
+</ul>
+<h2 id="3-practical-applications">3. Practical Applications</h2>
+<p>This idealized model applies to:</p>
+<ul>
+<li><em>Sports</em>: Trajectories of balls in soccer, basketball, or golf.</li>
+<li><em>Engineering</em>: Artillery or rocket launches.</li>
+<li><em>Astrophysics</em>: Simplified planetary motion (with adjusted <span class="arithmatex">\(g\)</span>).</li>
+</ul>
+<p>For real-world scenarios:</p>
+<ul>
+<li><em>Uneven terrain</em>: Adjust <span class="arithmatex">\(y_0\)</span> or solve for <span class="arithmatex">\(y(x)\)</span> intersecting a surface.</li>
+<li><em>Air resistance</em>: Introduce a drag term, e.g., <span class="arithmatex">\(-k v\)</span>, requiring numerical solutions.</li>
+</ul>
+<h2 id="4-implementation">4. Implementation</h2>
+<p>Below is a Python script using NumPy and Matplotlib to simulate and visualize the range as a function of <span class="arithmatex">\(\theta\)</span> for different <span class="arithmatex">\(v_0\)</span> and <span class="arithmatex">\(g\)</span>.</p>
+<p><img alt="alt text" src="../WhatsApp%20Image%202025-04-09%20at%2016.29.29_a4b35d6c-1.jpg"/></p>
+<h2 id="discussion-on-model-constrains">Discussion on Model Constrains</h2>
+<p>The basic model assumes:</p>
+<ul>
+<li>Absence of air friction: In reality, projectiles lose speed, which decreases their travel distance.</li>
+<li>Flat landscape: Uneven ground affects the landing position.</li>
+<li>Steady <span class="arithmatex">\(g\)</span>: Gravitational pull varies slightly depending on altitude or celestial body.</li>
+</ul>
+<h3 id="possible-improvements">Possible Improvements</h3>
+<ul>
+<li><em>Drag Force</em>: Include a term such as <span class="arithmatex">\(-k v\)</span> in the motion equations and solve them numerically (e.g., with scipy.integrate.odeint).</li>
+<li><em>Wind Influence</em>: Add a horizontal wind speed component to the calculations.</li>
+<li><em>Initial Height</em>: Use a non-zero <span class="arithmatex">\(y_0\)</span> and determine <span class="arithmatex">\(t_f\)</span> by solving the resulting quadratic equation.</li>
+</ul>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Though projectile motion appears straightforward, it holds significant depth. The range’s variation with <span class="arithmatex">\(\theta\)</span>, peaking at <span class="arithmatex">\(45^\circ\)</span>, and its dependence on <span class="arithmatex">\(v_0\)</span> and <span class="arithmatex">\(g\)</span> showcase a adaptable framework relevant to numerous disciplines. Simulations provide visual insight into these patterns, while enhancements like drag or terrain adjustments align the model more closely with practical scenarios.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
