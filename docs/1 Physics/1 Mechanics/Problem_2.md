@@ -70,7 +70,7 @@ For large $F$ or specific $\omega$, the nonlinear term $\sin(\theta)$ dominates,
 Energy Harvesting: Pendulum-based devices convert mechanical vibrations into electrical energy.
 Suspension Bridges: Forced oscillations model wind-induced vibrations, informing damping design.
 Oscillating Circuits: Driven RLC circuits mirror the pendulum’s dynamics, used in signal processing.
-
+![alt text](image.png)
 Deliverables
 General Solutions
 For small angles, the solution is a damped transient plus a steady-state oscillation. Beyond this, numerical methods like RK4 capture nonlinear dynamics.
