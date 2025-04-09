@@ -110,6 +110,7 @@ Numerical Analysis
 Use Newton’s gravitation: $\ddot{\mathbf{r}} = -\frac{G M}{r^3} \mathbf{r}$. Initial conditions: position $\mathbf{r}_0$, velocity $\mathbf{v}_0$, altitude $h$.
 
 ![alt text](image.png)
+![alt text](image-1.png)
 
 Explanations
 Orbital Period: Log-log plot confirms $T^2 \propto r^3$.
