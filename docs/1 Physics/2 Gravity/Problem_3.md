@@ -85,6 +85,7 @@ We simulate three cases:
 Elliptical trajectory: Specific energy = -3.61e+07 J/kg
 Parabolic trajectory: Specific energy = 7.45e-09 J/kg
 Hyperbolic trajectory: Specific energy = 2.67e+07 J/kg
+![alt text](image-2.png)
 
 ## Results
 
