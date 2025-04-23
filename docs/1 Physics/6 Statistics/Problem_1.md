@@ -95,8 +95,7 @@ plt.figure(figsize=(15, 12)) plot_idx = 1
 
 for dist_name, population in populations.items(): for sample_size in sample_sizes: # Compute sample means sample_means = [np.mean(np.random.choice(population, sample_size)) for _ in range(num_samples)]
 
-![alt text](image.png)
-![alt text](image-1.png)
+
 
     # Plot histogram with KDE
     plt.subplot(len(populations), len(sample_sizes), plot_idx)
