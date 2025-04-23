@@ -1,6 +1,7 @@
 # Problem 2
-
 Escape Velocities and Cosmic Velocities
+
+Introduction
 Introduction
 This document explores the concepts of escape velocity and the first, second, and third cosmic velocities, which are fundamental to space exploration. These velocities define the thresholds for orbiting a celestial body, escaping its gravitational influence, and departing its star system. The analysis includes:
 
