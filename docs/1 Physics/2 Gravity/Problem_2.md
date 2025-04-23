@@ -85,7 +85,7 @@ Sun
 $ 1.989 \times 10^{30} $
 -
 -
-
+![alt text](image-3.png)
 
 Earth:
   v1 = 7.91 km/s
@@ -101,22 +101,28 @@ Jupiter:
   v3 = 62.97 km/s
 
 Results
+
 Calculated Velocities
 Running the script yields:
+
 Earth:
   v1 = 7.91 km/s
   v2 = 11.19 km/s
   v3 = 42.12 km/s
+
 Mars:
   v1 = 3.55 km/s
   v2 = 5.03 km/s
   v3 = 37.97 km/s
+
 Jupiter:
   v1 = 42.14 km/s
   v2 = 59.54 km/s
   v3 = 64.28 km/s
 
+
 Visualization
+
 The script generates a bar plot (cosmic_velocities.png) comparing $ v_1 $, $ v_2 $, and $ v_3 $ for Earth, Mars, and Jupiter. Key observations:
 
 Jupiter has the highest velocities due to its large mass and radius.
@@ -149,4 +155,5 @@ The third cosmic velocity approximation simplifies the three-body dynamics (plan
 Calculations assume surface launches; real missions often start from orbit, altering velocity requirements.
 
 Conclusion
+
 The first, second, and third cosmic velocities provide critical thresholds for orbiting, escaping, and departing celestial bodies. Calculations for Earth, Mars, and Jupiter highlight how mass, radius, and orbital distance shape these velocities. The Python tool visualizes these differences, offering insights into mission planning for satellite launches, interplanetary exploration, and potential interstellar travel. Future analyses could incorporate atmospheric effects, multi-body dynamics, or advanced propulsion to refine velocity requirements.
