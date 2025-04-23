@@ -89,7 +89,7 @@ Hyperbolic trajectory: Specific energy = 2.67e+07 J/kg
 ## Results
 
 ### Trajectories
-The script generates a plot (`trajectories.png`) showing:
+The script generates a plot showing:
 - **Elliptical**: A closed orbit, indicating a bound trajectory.
 - **Parabolic**: An open trajectory that just escapes Earth's gravity.
 - **Hyperbolic**: An open trajectory with excess velocity, escaping rapidly.
