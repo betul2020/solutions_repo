@@ -218,8 +218,6 @@
 <p>Plotting</p>
 <p>plt.figure(figsize=(15, 12)) plot_idx = 1</p>
 <p>for dist_name, population in populations.items(): for sample_size in sample_sizes: # Compute sample means sample_means = [np.mean(np.random.choice(population, sample_size)) for _ in range(num_samples)]</p>
-<p><img alt="alt text" src="image.png"/>
-<img alt="alt text" src="image-1.png"/></p>
 <pre><code># Plot histogram with KDE
 plt.subplot(len(populations), len(sample_sizes), plot_idx)
 sns.histplot(sample_means, bins=30, kde=True, stat='density')

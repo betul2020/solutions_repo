@@ -172,6 +172,60 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
+<p>Estimating Pi Using Monte Carlo Methods and Buffon's Needle</p>
+<ol>
+<li>Motivation</li>
+</ol>
+<p>Monte Carlo simulations leverage randomness to solve problems or estimate values, offering an intuitive way to approximate mathematical constants like <span class="arithmatex">\(\pi\)</span>. This task explores two methods to estimate <span class="arithmatex">\(\pi\)</span>:</p>
+<p>Circle-Based Monte Carlo Method: Using the ratio of points inside a circle to points in a square.</p>
+<p>Buffon's Needle Method: Simulating needle drops to estimate <span class="arithmatex">\(\pi\)</span> based on the probability of crossing parallel lines.</p>
+<p>These methods bridge probability, geometry, and numerical computation, providing practical insights into convergence rates and computational efficiency.</p>
+<ol>
+<li>Theoretical Foundation</li>
+</ol>
+<p>Circle-Based Monte Carlo Method</p>
+<p>Consider a unit circle (radius 1) centered at the origin, inscribed in a square with side length 2 (spanning <span class="arithmatex">\(x, y \in [-1, 1]\)</span>). The area of the circle is <span class="arithmatex">\(\pi \cdot 1^2 = \pi\)</span>, and the area of the square is <span class="arithmatex">\(2 \cdot 2 = 4\)</span>. The ratio of these areas is:</p>
+<p>[ \frac{\text{Area of circle}}{\text{Area of square}} = \frac{\pi}{4} ]</p>
+<p>If we randomly generate points in the square, the probability a point lies inside the circle (i.e., <span class="arithmatex">\(x^2 + y^2 \leq 1\)</span>) equals this ratio. Thus:</p>
+<p>[ \pi \approx 4 \cdot \frac{\text{Number of points inside circle}}{\text{Total number of points}} ]</p>
+<p>Buffon's Needle Method</p>
+<p>In Buffon's Needle problem, a needle of length <span class="arithmatex">\(l\)</span> is dropped onto a plane with parallel lines spaced <span class="arithmatex">\(d\)</span> units apart, where <span class="arithmatex">\(l \leq d\)</span>. The probability that the needle crosses a line depends on its position and orientation. The position of the needle's center is uniformly distributed between 0 and <span class="arithmatex">\(d\)</span>, and its angle <span class="arithmatex">\(\theta\)</span> relative to the lines is uniformly distributed between 0 and <span class="arithmatex">\(\pi\)</span>.</p>
+<p>The distance from the needle’s center to the nearest line is <span class="arithmatex">\(y \in [0, \frac{d}{2}]\)</span>, and the needle crosses a line if <span class="arithmatex">\(y \leq \frac{l}{2} \sin(\theta)\)</span>. The probability of crossing is derived as:</p>
+<p>[ P(\text{crossing}) = \frac{2}{\pi} \cdot \frac{l}{d} ]</p>
+<p>For <span class="arithmatex">\(l = d\)</span>, this simplifies to <span class="arithmatex">\(P = \frac{2}{\pi}\)</span>. Thus:</p>
+<p>[ \pi \approx \frac{2 \cdot \text{Number of throws}}{\text{Number of crossings}} ]</p>
+<ol>
+<li>Simulation and Visualization</li>
+</ol>
+<p>Circle-Based Monte Carlo Simulation</p>
+<p>We generate random points in a 2D square and count how many fall inside the unit circle, then estimate <span class="arithmatex">\(\pi\)</span>. The simulation is visualized by plotting the points, distinguishing those inside and outside the circle.</p>
+<p>Buffon's Needle Simulation</p>
+<p>We simulate dropping a needle on a plane with parallel lines, count the crossings, and estimate <span class="arithmatex">\(\pi\)</span>. The needle positions are visualized relative to the lines.</p>
+<ol>
+<li>Implementation: Python Code</li>
+</ol>
+<p>Below are Python scripts for both methods, including simulations and visualizations.</p>
+<p>Circle-Based Monte Carlo Method</p>
+<p>import numpy as np import matplotlib.pyplot as plt</p>
+<p>Buffon's Needle Estimates of π:
+N = 100: π ≈ 3.38983
+N = 1000: π ≈ 3.19489
+N = 10000: π ≈ 3.15507
+N = 100000: π ≈ 3.14683
+<img alt="alt text" src="../image-1.png"/>
+<img alt="alt text" src="../image-2.png"/></p>
+<ol>
+<li>Analysis</li>
+</ol>
+<p>Convergence with Number of Iterations
+The table below shows the estimated <span class="arithmatex">\(\pi\)</span> for both methods across different numbers of iterations:</p>
+<p><img alt="alt text" src="../Screenshot%202025-04-23%20170811.png"/></p>
+<p>Circle-Based Method: Converges steadily, with accuracy improving as the number of points increases.
+Buffon's Needle: Shows more variability at lower iterations due to fewer crossings but converges similarly at higher iterations.</p>
+<ol>
+<li>Discussion</li>
+</ol>
+<p>Both methods effectively estimate <span class="arithmatex">\(\pi\)</span>, demonstrating the power of Monte Carlo simulations. The circle-based method is simpler and more efficient, while Buffon's Needle provides a geometric perspective tied to probability. Limitations include the slow convergence rate, requiring many iterations for high accuracy, and sensitivity to random number generation quality.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
