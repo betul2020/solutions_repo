@@ -74,17 +74,17 @@ Oscillating Circuits: Driven RLC circuits mirror the pendulum’s dynamics, used
 ![alt text](image-2.png)
 ![alt text](image-3.png)
 ![alt text](image-4.png)
-Deliverables
-General Solutions
-For small angles, the solution is a damped transient plus a steady-state oscillation. Beyond this, numerical methods like RK4 capture nonlinear dynamics.
 
-Graphical Representations
-The script generates plots for varying $b$, $F$, and $\omega$. Increase $F$ (e.g., 7.5) to observe chaos, or set $\omega \approx \omega_0$ for resonance.
+Visualizations
+Motion Plot: Displays $\theta(t)$, showing periodic or chaotic behavior.
+Phase Diagram: Plots $\theta$ vs. $\frac{d\theta}{dt}$, illustrating trajectories.
+Poincaré Section: Samples at $t = \frac{2\pi n}{\omega}$, revealing periodicity or chaos.
+Bifurcation Diagram: Shows $\theta$ vs. $A$, highlighting transitions to chaos.
 
-Limitations and Extensions
-Limitations: Assumes constant $b$ and periodic forcing; real systems may have nonlinear damping or noise.
-Extensions: Add nonlinear damping ($b|\dot{\theta}|\dot{\theta}$) or aperiodic forcing for richer dynamics.
-Advanced Analysis
-Phase Portraits: Show transitions from periodic to chaotic motion.
-Poincaré Sections: Highlight bifurcations and chaos onset.
-Bifurcation Diagrams: Plot $\theta$ at fixed $t$ vs. $F$ to map dynamic regimes (not implemented here but feasible with parameter sweeps).
+5. Discussion and Limitations
+Limitations: The model assumes constant damping and periodic forcing, ignoring nonlinear damping or stochastic effects.
+Extensions: Incorporate nonlinear damping ($b(\theta)$) or non-periodic forcing to better model real systems.
+Insights: The system transitions from periodic to chaotic motion as $A$ increases, with bifurcations indicating the onset of chaos.
+6. References
+Strogatz, S. H. (2018). Nonlinear Dynamics and Chaos.
+Baker, G. L., & Gollub, J. P. (1996). Chaotic Dynamics: An Introduction.
