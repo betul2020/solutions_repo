@@ -1,101 +1,62 @@
 # Problem 1
-Exploring the Central Limit Theorem through Simulations
+1. Simulating Sampling Distributions
 
-1. Motivation
-
-The Central Limit Theorem (CLT) is a fundamental concept in statistics, asserting that the sampling distribution of the sample mean approaches a normal distribution as the sample size $n$ increases, regardless of the population's underlying distribution. This task uses simulations to demonstrate the CLT, providing an intuitive understanding of its implications.
-
-2. Simulating Sampling Distributions
-
-We select three distinct population distributions to explore the CLT:
+The Central Limit Theorem (CLT) states that the distribution of sample means approaches a normal distribution as the sample size increases, regardless of the population's distribution. We'll simulate this using three population distributions:
 
 
 
 
 
-Uniform Distribution: Values in the range $[0, 10]$.
+Uniform Distribution: Range [0, 10].
 
 
 
-Exponential Distribution: With rate parameter $\lambda = 1$.
+Exponential Distribution: Rate parameter $\lambda = 1$.
 
 
 
-Binomial Distribution: With parameters $n = 10$ and $p = 0.5$.
+Binomial Distribution: $n = 10$, $p = 0.5$.
 
-For each distribution, we generate a large population dataset of 10,000 data points to simulate real-world scenarios.
+For each, we generate a large population dataset (10,000 data points).
 
-3. Sampling and Visualization
+2. Sampling and Visualization
 
-For each population, we:
+We randomly sample from each population, calculate the sample mean, and repeat this process 1,000 times for sample sizes of 5, 10, 30, and 50. We then plot histograms of the sample means to observe convergence to a normal distribution.
 
+3. Implementation: Python Simulation
 
+Below is a Python script that performs the simulation and visualization.
 
-
-
-Draw random samples of sizes $n = 5, 10, 30, 50$.
-
-
-
-Compute the sample mean for each sample.
+ import numpy as np import matplotlib.pyplot as plt import seaborn as sns
 
 
 
-Repeat this process 1,000 times to construct the sampling distribution of the sample mean.
+Results
 
-
-
-Plot histograms of the sample means to visualize convergence to a normal distribution.
+Uniform Distribution: The sampling distribution approaches normality even at small sample sizes (e.g., 10), due to its symmetric nature.
+Exponential Distribution: Being heavily skewed, it requires a larger sample size (e.g., 30) to approximate normality.
+Binomial Distribution: With $p=0.5$, it’s symmetric, so convergence is faster, similar to the uniform case.
 
 4. Parameter Exploration
 
 Shape and Sample Size
+Shape: Skewed distributions (e.g., exponential) converge more slowly to normality than symmetric ones (e.g., uniform, binomial).
+Sample Size: Larger sample sizes (e.g., 50) consistently produce bell-shaped distributions, confirming the CLT.
+Impact of Variance
+The variance of the sampling distribution is given by $\sigma^2/n$, where $\sigma^2$ is the population variance and $n$ is the sample size:
 
-The shape of the population distribution affects the rate of convergence:
+Uniform: Variance = $\frac{(10-0)^2}{12} = 8.33$; spread decreases as $n$ increases.
+Exponential: Variance = $1/\lambda^2 = 1$; larger sample sizes reduce the spread.
+Binomial: Variance = $np(1-p) = 10 \cdot 0.5 \cdot 0.5 = 2.5$; smaller variance leads to a tighter sampling distribution.
+5. Practical Applications
+Estimating Population Parameters: CLT allows us to use sample means to estimate population means with confidence intervals.
+Quality Control: In manufacturing, sample means of product measurements are assumed normal to set control limits.
+Financial Models: CLT helps model aggregate returns or losses as normal, aiding in risk prediction.
+6. Discussion
+The simulations align with the CLT: as sample size increases, the sampling distribution of the mean becomes normal, regardless of the population distribution. However, convergence rates depend on the population's shape and variance. Limitations include finite simulation runs, which may not fully capture extreme behaviors.
+![alt text](image-3.png)
 
-
-
-
-
-Symmetric distributions (e.g., uniform, binomial) converge faster.
-
-
-
-Skewed distributions (e.g., exponential) require larger sample sizes for normality.
-
-Variance Impact
-
-The variance of the sampling distribution is $\frac{\sigma^2}{n}$, where $\sigma^2$ is the population variance. Larger $n$ reduces the spread, and populations with larger $\sigma^2$ result in wider sampling distributions.
-
-5. Implementation: Python Simulation
-
-Below is a Python script that implements the simulations and visualizations using NumPy for data generation and Matplotlib/Seaborn for plotting.
-
- import numpy as np import matplotlib.pyplot as plt import seaborn as sns
-
-Set random seed for reproducibility
-
-np.random.seed(42)
-
-Generate population datasets
-
-population_size = 10000 uniform_pop = np.random.uniform(0, 10, population_size) # Uniform [0, 10] exponential_pop = np.random.exponential(scale=1, size=population_size) # Exponential, lambda=1 binomial_pop = np.random.binomial(n=10, p=0.5, size=population_size) # Binomial, n=10, p=0.5
-
-Store populations
-
-populations = { 'Uniform': uniform_pop, 'Exponential': exponential_pop, 'Binomial': binomial_pop }
-
-Simulation parameters
-
-sample_sizes = [5, 10, 30, 50] num_samples = 1000 # Number of samples for each sample size
-
-Plotting
-
-plt.figure(figsize=(15, 12)) plot_idx = 1
-
-for dist_name, population in populations.items(): for sample_size in sample_sizes: # Compute sample means sample_means = [np.mean(np.random.choice(population, sample_size)) for _ in range(num_samples)]
-
-
+![alt text](image-4.png)
 
     # Plot histogram with KDE
     plt.subplot(len(populations), len(sample_sizes), plot_idx)
