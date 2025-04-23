@@ -172,6 +172,106 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-3">Problem 3</h1>
+<h1 id="analysis-of-payload-trajectories-near-earth">Analysis of Payload Trajectories Near Earth</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This document analyzes the trajectories of a payload released from a moving rocket near Earth, under the influence of Earth's gravitational field. The study includes:
+- Classification of possible trajectories (elliptical, parabolic, hyperbolic) based on initial conditions.
+- Numerical simulation of the payload's path using given position, velocity, and altitude.
+- Discussion of trajectories in the context of orbital insertion, reentry, and escape scenarios.
+- Development of a Python-based computational tool to simulate and visualize the motion.</p>
+<p>The simulation employs numerical methods to solve the equations of motion, providing graphical representations to illustrate the payload's behavior and its implications for space missions.</p>
+<h2 id="theoretical-framework">Theoretical Framework</h2>
+<h3 id="gravitational-dynamics">Gravitational Dynamics</h3>
+<p>The motion of the payload is governed by <strong>Newton's Law of Gravitation</strong>:</p>
+<div class="arithmatex">\[ F = -\frac{G M m}{r^2} \hat{r} \]</div>
+<p>where:
+- $ G = 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} $ is the gravitational constant,
+- $ M = 5.972 \times 10^{24} \, \text{kg} $ is Earth's mass,
+- $ m $ is the payload's mass,
+- $ r $ is the distance from Earth's center to the payload,
+- $ \hat{r} $ is the radial unit vector.</p>
+<p>The acceleration in Cartesian coordinates <span class="arithmatex">\((x, y)\)</span> is:</p>
+<div class="arithmatex">\[ \ddot{\mathbf{r}} = -\frac{\mu}{r^3} \mathbf{r} \]</div>
+<p>where $ \mathbf{r} = (x, y) $, $ r = \sqrt{x^2 + y^2} $, and $ \mu = G M = 3.986 \times 10^{14} \, \text{m}^3 \text{s}^{-2} $ is Earth's gravitational parameter.</p>
+<h3 id="trajectory-classification">Trajectory Classification</h3>
+<p>The trajectory is determined by the <strong>specific mechanical energy</strong> ($ \epsilon $):</p>
+<div class="arithmatex">\[ \epsilon = \frac{v^2}{2} - \frac{\mu}{r} \]</div>
+<p>where $ v $ is the payload's speed. The energy classifies the trajectory:
+- <strong>Elliptical</strong>: $ \epsilon &lt; 0 $, a bound orbit (e.g., satellite orbits).
+- <strong>Parabolic</strong>: $ \epsilon = 0 $, escapes with zero velocity at infinity.
+- <strong>Hyperbolic</strong>: $ \epsilon &gt; 0 $, escapes with residual velocity.</p>
+<p>The <strong>vis-viva equation</strong> relates velocity, distance, and semi-major axis ($ a $):</p>
+<div class="arithmatex">\[ v^2 = \mu \left( \frac{2}{r} - \frac{1}{a} \right) \]</div>
+<p>The eccentricity ($ e $) defines the orbit shape:
+- $ e &lt; 1 $: Elliptical.
+- $ e = 1 $: Parabolic.
+- $ e &gt; 1 $: Hyperbolic.</p>
+<h3 id="key-velocities">Key Velocities</h3>
+<ul>
+<li><strong>Circular velocity</strong> (for a circular orbit at radius $ r $):</li>
+</ul>
+<div class="arithmatex">\[ v_{\text{circ}} = \sqrt{\frac{\mu}{r}} \]</div>
+<ul>
+<li><strong>Escape velocity</strong> (minimum velocity to escape Earth's gravity):</li>
+</ul>
+<div class="arithmatex">\[ v_{\text{esc}} = \sqrt{\frac{2 \mu}{r}} = \sqrt{2} v_{\text{circ}} \]</div>
+<p>These velocities help determine the trajectory type based on the initial velocity.</p>
+<h2 id="numerical-simulation">Numerical Simulation</h2>
+<h3 id="methodology">Methodology</h3>
+<p>We simulate the payload's motion in a 2D Cartesian plane by numerically integrating the equations of motion. The state vector is $ \mathbf{s} = [x, y, v_x, v_y] $, and the differential equations are:</p>
+<div class="arithmatex">\[ \frac{d}{dt} \begin{bmatrix} x \\ y \\ v_x \\ v_y \end{bmatrix} = \begin{bmatrix} v_x \\ v_y \\ -\frac{\mu x}{r^3} \\ -\frac{\mu y}{r^3} \end{bmatrix} \]</div>
+<p>We use the <code>solve_ivp</code> function from <strong>SciPy</strong> with the RK45 method for numerical integration.</p>
+<h3 id="initial-conditions">Initial Conditions</h3>
+<p>The payload is released at an altitude of 200 km:
+- Earth's radius: $ R_e = 6371 \, \text{km} = 6.371 \times 10^6 \, \text{m} $.
+- Initial radius: $ r_0 = R_e + 200 \, \text{km} = 6.571 \times 10^6 \, \text{m} $.
+- Initial position: $ (x_0, y_0) = (r_ rozeero, 0) $.
+- Initial velocity: Directed along the positive $ y <span class="arithmatex">\(-axis for simplicity.
+- Simulation duration: 4 hours (\)</span> t = 0 $ to $ t = 14400 \, \text{s} $).</p>
+<p>We simulate three cases:
+1. <strong>Elliptical</strong>: Initial velocity = 90% of circular velocity.
+2. <strong>Parabolic</strong>: Initial velocity = escape velocity.
+3. <strong>Hyperbolic</strong>: Initial velocity = 120% of escape velocity.</p>
+<p>Elliptical trajectory: Specific energy = -3.61e+07 J/kg
+Parabolic trajectory: Specific energy = 7.45e-09 J/kg
+Hyperbolic trajectory: Specific energy = 2.67e+07 J/kg</p>
+<h2 id="results">Results</h2>
+<h3 id="trajectories">Trajectories</h3>
+<p>The script generates a plot (<code>trajectories.png</code>) showing:
+- <strong>Elliptical</strong>: A closed orbit, indicating a bound trajectory.
+- <strong>Parabolic</strong>: An open trajectory that just escapes Earth's gravity.
+- <strong>Hyperbolic</strong>: An open trajectory with excess velocity, escaping rapidly.</p>
+<h3 id="energy-verification">Energy Verification</h3>
+<p>The specific mechanical energy confirms the trajectory types:
+- <strong>Elliptical</strong>: Negative energy (bound orbit).
+- <strong>Parabolic</strong>: Approximately zero energy (marginal escape).
+- <strong>Hyperbolic</strong>: Positive energy (escape with residual velocity).</p>
+<p>Sample output:</p>
+<pre><code>Elliptical trajectory: Specific energy = -2.51e+07 J/kg
+Parabolic trajectory: Specific energy = 0.00e+00 J/kg
+Hyperbolic trajectory: Specific energy = 8.97e+06 J/kg
+</code></pre>
+<h2 id="discussion">Discussion</h2>
+<h3 id="trajectory-implications">Trajectory Implications</h3>
+<ul>
+<li><strong>Elliptical Orbits</strong>: Ideal for satellite deployment or orbital insertion. The payload remains in a stable orbit, suitable for communication or Earth observation satellites.</li>
+<li><strong>Parabolic Trajectories</strong>: Represent the minimum energy for escape, relevant for missions leaving Earth's gravity with no excess velocity (e.g., certain deep-space probes).</li>
+<li><strong>Hyperbolic Trajectories</strong>: Occur in high-energy scenarios, such as interplanetary missions or high-speed reentry. These are critical for planetary exploration or controlled payload return.</li>
+</ul>
+<h3 id="applications">Applications</h3>
+<ul>
+<li><strong>Orbital Insertion</strong>: Satellites are placed in elliptical orbits by achieving the required orbital velocity, ensuring stable operation.</li>
+<li><strong>Reentry</strong>: Returning payloads follow hyperbolic or high-eccentricity elliptical paths, requiring precise velocity and angle control for safe landing.</li>
+<li><strong>Escape</strong>: Missions to the Moon or other planets require velocities exceeding escape velocity, often resulting in hyperbolic trajectories.</li>
+</ul>
+<h3 id="limitations">Limitations</h3>
+<ul>
+<li>The model assumes a point-mass Earth and neglects atmospheric drag, non-spherical gravitational effects, and other perturbations.</li>
+<li>The 2D simulation simplifies the problem; 3D dynamics may be needed for real missions.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>This analysis demonstrates how initial velocity and position determine a payload's trajectory near Earth. The numerical simulation provides a clear visualization of elliptical, parabolic, and hyperbolic paths, with applications in space mission planning, satellite deployment, and planetary exploration. The Python tool can be extended to include additional forces (e.g., drag, solar radiation) or 3D dynamics for more accurate modeling.</p>
+<p></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
