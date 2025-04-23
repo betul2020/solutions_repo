@@ -172,52 +172,46 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<p>Exploring the Central Limit Theorem through Simulations</p>
-<ol>
-<li>Motivation</li>
-</ol>
-<p>The Central Limit Theorem (CLT) is a fundamental concept in statistics, asserting that the sampling distribution of the sample mean approaches a normal distribution as the sample size <span class="arithmatex">\(n\)</span> increases, regardless of the population's underlying distribution. This task uses simulations to demonstrate the CLT, providing an intuitive understanding of its implications.</p>
 <ol>
 <li>Simulating Sampling Distributions</li>
 </ol>
-<p>We select three distinct population distributions to explore the CLT:</p>
-<p>Uniform Distribution: Values in the range <span class="arithmatex">\([0, 10]\)</span>.</p>
-<p>Exponential Distribution: With rate parameter <span class="arithmatex">\(\lambda = 1\)</span>.</p>
-<p>Binomial Distribution: With parameters <span class="arithmatex">\(n = 10\)</span> and <span class="arithmatex">\(p = 0.5\)</span>.</p>
-<p>For each distribution, we generate a large population dataset of 10,000 data points to simulate real-world scenarios.</p>
+<p>The Central Limit Theorem (CLT) states that the distribution of sample means approaches a normal distribution as the sample size increases, regardless of the population's distribution. We'll simulate this using three population distributions:</p>
+<p>Uniform Distribution: Range [0, 10].</p>
+<p>Exponential Distribution: Rate parameter <span class="arithmatex">\(\lambda = 1\)</span>.</p>
+<p>Binomial Distribution: <span class="arithmatex">\(n = 10\)</span>, <span class="arithmatex">\(p = 0.5\)</span>.</p>
+<p>For each, we generate a large population dataset (10,000 data points).</p>
 <ol>
 <li>Sampling and Visualization</li>
 </ol>
-<p>For each population, we:</p>
-<p>Draw random samples of sizes <span class="arithmatex">\(n = 5, 10, 30, 50\)</span>.</p>
-<p>Compute the sample mean for each sample.</p>
-<p>Repeat this process 1,000 times to construct the sampling distribution of the sample mean.</p>
-<p>Plot histograms of the sample means to visualize convergence to a normal distribution.</p>
-<ol>
-<li>Parameter Exploration</li>
-</ol>
-<p>Shape and Sample Size</p>
-<p>The shape of the population distribution affects the rate of convergence:</p>
-<p>Symmetric distributions (e.g., uniform, binomial) converge faster.</p>
-<p>Skewed distributions (e.g., exponential) require larger sample sizes for normality.</p>
-<p>Variance Impact</p>
-<p>The variance of the sampling distribution is <span class="arithmatex">\(\frac{\sigma^2}{n}\)</span>, where <span class="arithmatex">\(\sigma^2\)</span> is the population variance. Larger <span class="arithmatex">\(n\)</span> reduces the spread, and populations with larger <span class="arithmatex">\(\sigma^2\)</span> result in wider sampling distributions.</p>
+<p>We randomly sample from each population, calculate the sample mean, and repeat this process 1,000 times for sample sizes of 5, 10, 30, and 50. We then plot histograms of the sample means to observe convergence to a normal distribution.</p>
 <ol>
 <li>Implementation: Python Simulation</li>
 </ol>
-<p>Below is a Python script that implements the simulations and visualizations using NumPy for data generation and Matplotlib/Seaborn for plotting.</p>
+<p>Below is a Python script that performs the simulation and visualization.</p>
 <p>import numpy as np import matplotlib.pyplot as plt import seaborn as sns</p>
-<p>Set random seed for reproducibility</p>
-<p>np.random.seed(42)</p>
-<p>Generate population datasets</p>
-<p>population_size = 10000 uniform_pop = np.random.uniform(0, 10, population_size) # Uniform [0, 10] exponential_pop = np.random.exponential(scale=1, size=population_size) # Exponential, lambda=1 binomial_pop = np.random.binomial(n=10, p=0.5, size=population_size) # Binomial, n=10, p=0.5</p>
-<p>Store populations</p>
-<p>populations = { 'Uniform': uniform_pop, 'Exponential': exponential_pop, 'Binomial': binomial_pop }</p>
-<p>Simulation parameters</p>
-<p>sample_sizes = [5, 10, 30, 50] num_samples = 1000 # Number of samples for each sample size</p>
-<p>Plotting</p>
-<p>plt.figure(figsize=(15, 12)) plot_idx = 1</p>
-<p>for dist_name, population in populations.items(): for sample_size in sample_sizes: # Compute sample means sample_means = [np.mean(np.random.choice(population, sample_size)) for _ in range(num_samples)]</p>
+<p>Results</p>
+<p>Uniform Distribution: The sampling distribution approaches normality even at small sample sizes (e.g., 10), due to its symmetric nature.
+Exponential Distribution: Being heavily skewed, it requires a larger sample size (e.g., 30) to approximate normality.
+Binomial Distribution: With <span class="arithmatex">\(p=0.5\)</span>, it’s symmetric, so convergence is faster, similar to the uniform case.</p>
+<ol>
+<li>Parameter Exploration</li>
+</ol>
+<p>Shape and Sample Size
+Shape: Skewed distributions (e.g., exponential) converge more slowly to normality than symmetric ones (e.g., uniform, binomial).
+Sample Size: Larger sample sizes (e.g., 50) consistently produce bell-shaped distributions, confirming the CLT.
+Impact of Variance
+The variance of the sampling distribution is given by <span class="arithmatex">\(\sigma^2/n\)</span>, where <span class="arithmatex">\(\sigma^2\)</span> is the population variance and <span class="arithmatex">\(n\)</span> is the sample size:</p>
+<p>Uniform: Variance = <span class="arithmatex">\(\frac{(10-0)^2}{12} = 8.33\)</span>; spread decreases as <span class="arithmatex">\(n\)</span> increases.
+Exponential: Variance = <span class="arithmatex">\(1/\lambda^2 = 1\)</span>; larger sample sizes reduce the spread.
+Binomial: Variance = <span class="arithmatex">\(np(1-p) = 10 \cdot 0.5 \cdot 0.5 = 2.5\)</span>; smaller variance leads to a tighter sampling distribution.
+5. Practical Applications
+Estimating Population Parameters: CLT allows us to use sample means to estimate population means with confidence intervals.
+Quality Control: In manufacturing, sample means of product measurements are assumed normal to set control limits.
+Financial Models: CLT helps model aggregate returns or losses as normal, aiding in risk prediction.
+6. Discussion
+The simulations align with the CLT: as sample size increases, the sampling distribution of the mean becomes normal, regardless of the population distribution. However, convergence rates depend on the population's shape and variance. Limitations include finite simulation runs, which may not fully capture extreme behaviors.
+<img alt="alt text" src="../image-3.png"/></p>
+<p><img alt="alt text" src="../image-4.png"/></p>
 <pre><code># Plot histogram with KDE
 plt.subplot(len(populations), len(sample_sizes), plot_idx)
 sns.histplot(sample_means, bins=30, kde=True, stat='density')
