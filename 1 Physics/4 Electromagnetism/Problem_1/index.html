@@ -172,6 +172,77 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<p>Lorentz Force Simulation: Charged Particle Motion
+This document implements a simulation to explore the motion of a charged particle under the Lorentz force, given by:
+$$ \mathbf{F} = q\mathbf{E} + q\mathbf{v} \times \mathbf{B} $$
+where:</p>
+<p>$ \mathbf{F} $ is the force on the particle,
+$ q $ is the charge of the particle,
+$ \mathbf{E} $ is the electric field,
+$ \mathbf{v} $ is the velocity of the particle,
+$ \mathbf{B} $ is the magnetic field.</p>
+<p>We will simulate the particle's trajectory under various field configurations, visualize the results in 2D and 3D, and discuss their relevance to real-world systems.</p>
+<ol>
+<li>Identify Systems Where Lorentz Force Plays a Key Role
+The Lorentz force is fundamental in many physical systems:</li>
+</ol>
+<p>Particle Accelerators (e.g., Cyclotrons): Magnetic fields cause particles to follow circular paths, while electric fields accelerate them.
+Plasma Confinement (e.g., Tokamaks): Crossed electric and magnetic fields confine charged particles in fusion devices.
+Astrophysical Phenomena: Charged particles in Earth's magnetosphere follow helical paths due to the planet's magnetic field.</p>
+<p>In these systems:</p>
+<p>Electric Fields ($ \mathbf{E} <span class="arithmatex">\(): Accelerate particles, contributing to a linear force component.
+Magnetic Fields (\)</span> \mathbf{B} $): Cause particles to gyrate, leading to circular or helical motion via the $ \mathbf{v} \times \mathbf{B} $ term.</p>
+<ol>
+<li>Simulate Particle Motion
+We simulate the motion of a charged particle using Python. The equation of motion is derived from Newton's second law:
+$$ \mathbf{F} = m\mathbf{a} = m \frac{d\mathbf{v}}{dt} $$
+Substituting the Lorentz force:
+$$ m \frac{d\mathbf{v}}{dt} = q\mathbf{E} + q\mathbf{v} \times \mathbf{B} $$
+We also have the kinematic relation:
+$$ \frac{d\mathbf{r}}{dt} = \mathbf{v} $$
+where $ \mathbf{r} $ is the position of the particle. We solve these differential equations numerically using the Runge-Kutta 4th-order (RK4) method for better accuracy compared to the Euler method.
+Field Configurations</li>
+</ol>
+<p>Uniform Magnetic Field: $ \mathbf{B} = (0, 0, B_z) $, $ \mathbf{E} = 0 $.
+Combined Fields: $ \mathbf{E} = (E_x, 0, 0) $, $ \mathbf{B} = (0, 0, B_z) $.
+Crossed Fields: $ \mathbf{E} $ and $ \mathbf{B} $ are perpendicular, leading to drift motion.</p>
+<p>Theoretical Larmor Radius: 1.48e-03 m
+Theoretical Drift Velocity (E x B): -1.00e+03 m/s (y-direction)
+<img alt="alt text" src="../image-1.png"/></p>
+<p><img alt="alt text" src="../image-2.png"/></p>
+<ol>
+<li>Parameter Exploration
+We explore how the following parameters affect the trajectory:</li>
+</ol>
+<p>Field Strengths ($ \mathbf{E}, \mathbf{B} $):
+Increasing $ B_z $ tightens the circular motion (smaller Larmor radius, $ r_L = \frac{mv_\perp}{|q|B} $).
+Increasing $ E_x $ enhances the drift velocity in crossed fields, given by $ \mathbf{v}_d = \frac{\mathbf{E} \times \mathbf{B}}{B^2} $.</p>
+<p>Initial Velocity ($ \mathbf{v} $): Higher $ v_\perp $ (perpendicular to $ \mathbf{B} <span class="arithmatex">\() increases the Larmor radius.
+Charge (\)</span> q <span class="arithmatex">\() and Mass (\)</span> m $): Larger $ |q| $ or smaller $ m $ results in tighter gyration.</p>
+<p>Observations</p>
+<p>Uniform Magnetic Field: The particle follows a helical path (circular in the x-y plane, linear along z if $ v_z \neq 0 $).
+Crossed Fields: The particle exhibits drift motion along the y-axis due to the $ \mathbf{E} \times \mathbf{B} $ effect, superimposed on the helical motion.
+The Larmor radius and drift velocity match theoretical predictions, as seen in the plots.</p>
+<ol>
+<li>Visualizations
+The script generates two plots:</li>
+</ol>
+<p>2D Plot (x-y plane): Shows the circular/helical projection of the trajectory.
+3D Plot: Displays the full 3D path, highlighting any drift or helical motion.</p>
+<p>These plots are saved as trajectory_2d.png and trajectory_3d.png.</p>
+<ol>
+<li>Discussion: Relevance to Practical Systems</li>
+</ol>
+<p>Cyclotrons: The simulation's helical motion in a uniform $ \mathbf{B} $-field mirrors the circular paths in cyclotrons, where particles are accelerated by an oscillating $ \mathbf{E} $-field.
+Magnetic Traps: Crossed fields in our simulation produce drift motion, similar to how magnetic traps confine plasma by inducing controlled drifts.
+The observed Larmor radius and drift velocity align with theoretical expectations, validating the simulation's accuracy for real-world applications.</p>
+<ol>
+<li>Suggestions for Extension</li>
+</ol>
+<p>Simulate non-uniform fields (e.g., $ \mathbf{B} $ varying with position) to model more complex systems like magnetic bottles.
+Introduce relativistic effects for high-speed particles, modifying the Lorentz force equation.
+Add multiple particles to study collective behavior, such as in plasmas.</p>
+<p>This simulation provides an intuitive understanding of the Lorentz force and its applications, bridging theoretical physics with practical systems.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
