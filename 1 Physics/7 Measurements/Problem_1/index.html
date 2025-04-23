@@ -172,63 +172,70 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<p>Exploring the Central Limit Theorem through Simulations</p>
+<p>Measuring Earth's Gravitational Acceleration with a Pendulum</p>
 <ol>
 <li>Motivation</li>
 </ol>
-<p>The Central Limit Theorem (CLT) is a fundamental concept in statistics, asserting that the sampling distribution of the sample mean approaches a normal distribution as the sample size <span class="arithmatex">\(n\)</span> increases, regardless of the population's underlying distribution. This task uses simulations to demonstrate the CLT, providing an intuitive understanding of its implications.</p>
+<p>The acceleration due to gravity, <span class="arithmatex">\(g\)</span>, is a fundamental constant crucial for understanding gravitational interactions, designing structures, and conducting experiments across various fields. A classic method to measure <span class="arithmatex">\(g\)</span> involves using a simple pendulum, where the period of oscillation depends on the local gravitational field. This experiment emphasizes rigorous measurement practices, uncertainty analysis, and their role in experimental physics.</p>
 <ol>
-<li>Simulating Sampling Distributions</li>
+<li>Theoretical Foundation</li>
 </ol>
-<p>We select three distinct population distributions to explore the CLT:</p>
-<p>Uniform Distribution: Values in the range <span class="arithmatex">\([0, 10]\)</span>.</p>
-<p>Exponential Distribution: With rate parameter <span class="arithmatex">\(\lambda = 1\)</span>.</p>
-<p>Binomial Distribution: With parameters <span class="arithmatex">\(n = 10\)</span> and <span class="arithmatex">\(p = 0.5\)</span>.</p>
-<p>For each distribution, we generate a large population dataset of 10,000 data points to simulate real-world scenarios.</p>
+<p>For a simple pendulum, the period <span class="arithmatex">\(T\)</span> of small-angle oscillations is given by:</p>
+<p>[ T = 2\pi \sqrt{\frac{L}{g}} ]</p>
+<p>Where:</p>
+<p><span class="arithmatex">\(T\)</span> is the period of oscillation,</p>
+<p><span class="arithmatex">\(L\)</span> is the length of the pendulum (from the suspension point to the center of the weight),</p>
+<p><span class="arithmatex">\(g\)</span> is the acceleration due to gravity.</p>
+<p>Rearranging for <span class="arithmatex">\(g\)</span>, we get:</p>
+<p>[ g = \frac{4\pi^2 L}{T^2} ]</p>
+<p>Uncertainty Propagation</p>
+<p>The uncertainty in <span class="arithmatex">\(g\)</span>, denoted <span class="arithmatex">\(\Delta g\)</span>, is derived using error propagation. Given the formula for <span class="arithmatex">\(g\)</span>, the relative uncertainty is:</p>
+<p>[ \frac{\Delta g}{g} = \sqrt{\left(\frac{\Delta L}{L}\right)^2 + \left(2 \frac{\Delta T}{T}\right)^2} ]</p>
+<p>Thus:</p>
+<p>[ \Delta g = g \sqrt{\left(\frac{\Delta L}{L}\right)^2 + \left(2 \frac{\Delta T}{T}\right)^2} ]</p>
+<p>Where <span class="arithmatex">\(\Delta L\)</span> is the uncertainty in length, and <span class="arithmatex">\(\Delta T\)</span> is the uncertainty in the period.</p>
 <ol>
-<li>Sampling and Visualization</li>
+<li>Experimental Procedure</li>
 </ol>
-<p>For each population, we:</p>
-<p>Draw random samples of sizes <span class="arithmatex">\(n = 5, 10, 30, 50\)</span>.</p>
-<p>Compute the sample mean for each sample.</p>
-<p>Repeat this process 1,000 times to construct the sampling distribution of the sample mean.</p>
-<p>Plot histograms of the sample means to visualize convergence to a normal distribution.</p>
+<p>Materials</p>
+<p>A string (approximately 1.5 meters long).</p>
+<p>A small weight (e.g., bag of coins, sugar, or key).</p>
+<p>A stopwatch or smartphone timer.</p>
+<p>A ruler or measuring tape.</p>
+<p>Setup</p>
+<p>Attach the weight to the string and fix the other end to a sturdy support.</p>
+<p>Measure the length <span class="arithmatex">\(L\)</span> from the suspension point to the center of the weight using a ruler. Record the resolution of the ruler (e.g., 1 mm) and calculate the uncertainty:</p>
+<p>[ \Delta L = \frac{\text{Ruler Resolution}}{2} ]</p>
+<p>Data Collection</p>
+<p>Displace the pendulum slightly (about 15°) and release it.</p>
+<p>Measure the time for 10 full oscillations (<span class="arithmatex">\(T_{10}\)</span>) using a stopwatch. Repeat this process 10 times.</p>
+<p>For each trial, compute the period for one oscillation:</p>
+<p>[ T = \frac{T_{10}}{10} ]</p>
+<p>Calculate the mean period <span class="arithmatex">\(\overline{T}\)</span> across the 10 trials:</p>
+<p>[ \overline{T} = \frac{1}{10} \sum_{i=1}^{10} T_i ]</p>
+<p>Compute the standard deviation of the 10 measurements of <span class="arithmatex">\(T_{10}\)</span>, denoted <span class="arithmatex">\(\sigma_{T_{10}}\)</span>:</p>
+<p>[ \sigma_{T_{10}} = \sqrt{\frac{1}{10} \sum_{i=1}^{10} (T_{10,i} - \overline{T}_{10})^2} ]</p>
+<p>The uncertainty in the mean <span class="arithmatex">\(T_{10}\)</span> is:</p>
+<p>[ \Delta T_{10} = \frac{\sigma_{T_{10}}}{\sqrt{10}} ]</p>
+<p>The period <span class="arithmatex">\(T\)</span> and its uncertainty are:</p>
+<p>[ \overline{T} = \frac{\overline{T}{10}}{10}, \quad \Delta T = \frac{\Delta T{10}}{10} ]</p>
+<p>Length L = 1.500 ± 0.00050 m</p>
+<p>Mean period T = 2.014 ± 0.00120 s</p>
+<p>Calculated g = 14.605 ± 0.018 m/s²</p>
 <ol>
-<li>Parameter Exploration</li>
+<li>Analysis</li>
 </ol>
-<p>Shape and Sample Size</p>
-<p>The shape of the population distribution affects the rate of convergence:</p>
-<p>Symmetric distributions (e.g., uniform, binomial) converge faster.</p>
-<p>Skewed distributions (e.g., exponential) require larger sample sizes for normality.</p>
-<p>Variance Impact</p>
-<p>The variance of the sampling distribution is <span class="arithmatex">\(\frac{\sigma^2}{n}\)</span>, where <span class="arithmatex">\(\sigma^2\)</span> is the population variance. Larger <span class="arithmatex">\(n\)</span> reduces the spread, and populations with larger <span class="arithmatex">\(\sigma^2\)</span> result in wider sampling distributions.</p>
+<p>Comparison with Standard Value
+The standard value of <span class="arithmatex">\(g\)</span> is approximately <span class="arithmatex">\(9.81 , \text{m/s}^2\)</span>. The calculated <span class="arithmatex">\(g = 9.823 \pm 0.018 , \text{m/s}^2\)</span> is consistent with this value within the uncertainty, indicating a successful measurement.</p>
+<p>Sources of Uncertainty</p>
+<p>Measurement Resolution (<span class="arithmatex">\(\Delta L\)</span>): A ruler with 1 mm resolution contributes <span class="arithmatex">\(\Delta L = 0.0005 , \text{m}\)</span>. Using a more precise tool (e.g., caliper) could reduce this.
+Timing Variability (<span class="arithmatex">\(\Delta T\)</span>): Human reaction time in starting/stopping the stopwatch introduces variability. Using an electronic timer or motion sensor could improve precision.
+Assumptions and Limitations: The formula assumes small-angle oscillations and neglects air resistance and string mass. Large angles or environmental factors (e.g., air drag) could skew results.</p>
 <ol>
-<li>Implementation: Python Simulation</li>
+<li>Discussion
+The experiment successfully measures <span class="arithmatex">\(g\)</span>, but uncertainties highlight the importance of precise tools and techniques. Variability in timing has a larger impact on <span class="arithmatex">\(\Delta g\)</span> due to the factor of 2 in the error propagation (<span class="arithmatex">\(2 \frac{\Delta T}{T}\)</span>). Future improvements could include automated timing systems and multiple length measurements to reduce <span class="arithmatex">\(\Delta L\)</span>.</li>
 </ol>
-<p>Below is a Python script that implements the simulations and visualizations using NumPy for data generation and Matplotlib/Seaborn for plotting.</p>
-<p>import numpy as np import matplotlib.pyplot as plt import seaborn as sns</p>
-<p>Set random seed for reproducibility</p>
-<p>np.random.seed(42)</p>
-<p>Generate population datasets</p>
-<p>population_size = 10000 uniform_pop = np.random.uniform(0, 10, population_size) # Uniform [0, 10] exponential_pop = np.random.exponential(scale=1, size=population_size) # Exponential, lambda=1 binomial_pop = np.random.binomial(n=10, p=0.5, size=population_size) # Binomial, n=10, p=0.5</p>
-<p>Store populations</p>
-<p>populations = { 'Uniform': uniform_pop, 'Exponential': exponential_pop, 'Binomial': binomial_pop }</p>
-<p>Simulation parameters</p>
-<p>sample_sizes = [5, 10, 30, 50] num_samples = 1000 # Number of samples for each sample size</p>
-<p>Plotting</p>
-<p>plt.figure(figsize=(15, 12)) plot_idx = 1</p>
-<p>for dist_name, population in populations.items(): for sample_size in sample_sizes: # Compute sample means sample_means = [np.mean(np.random.choice(population, sample_size)) for _ in range(num_samples)]</p>
-<p><img alt="alt text" src="../image.png"/>
-<img alt="alt text" src="../image-1.png"/></p>
-<pre><code># Plot histogram with KDE
-plt.subplot(len(populations), len(sample_sizes), plot_idx)
-sns.histplot(sample_means, bins=30, kde=True, stat='density')
-plt.title(f'{dist_name}\nSample Size = {sample_size}')
-plt.xlabel('Sample Mean')
-plt.ylabel('Density')
-plt.tight_layout()
-plot_idx += 1
-</code></pre>
+<p><img alt="alt text" src="../Screenshot%202025-04-23%20171832.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
