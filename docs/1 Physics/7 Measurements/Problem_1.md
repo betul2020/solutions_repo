@@ -1,109 +1,156 @@
 # Problem 1
-
-Exploring the Central Limit Theorem through Simulations
+Measuring Earth's Gravitational Acceleration with a Pendulum
 
 1. Motivation
 
-The Central Limit Theorem (CLT) is a fundamental concept in statistics, asserting that the sampling distribution of the sample mean approaches a normal distribution as the sample size $n$ increases, regardless of the population's underlying distribution. This task uses simulations to demonstrate the CLT, providing an intuitive understanding of its implications.
+The acceleration due to gravity, $g$, is a fundamental constant crucial for understanding gravitational interactions, designing structures, and conducting experiments across various fields. A classic method to measure $g$ involves using a simple pendulum, where the period of oscillation depends on the local gravitational field. This experiment emphasizes rigorous measurement practices, uncertainty analysis, and their role in experimental physics.
 
-2. Simulating Sampling Distributions
+2. Theoretical Foundation
 
-We select three distinct population distributions to explore the CLT:
+For a simple pendulum, the period $T$ of small-angle oscillations is given by:
 
+[ T = 2\pi \sqrt{\frac{L}{g}} ]
 
-
-
-
-Uniform Distribution: Values in the range $[0, 10]$.
-
-
-
-Exponential Distribution: With rate parameter $\lambda = 1$.
-
-
-
-Binomial Distribution: With parameters $n = 10$ and $p = 0.5$.
-
-For each distribution, we generate a large population dataset of 10,000 data points to simulate real-world scenarios.
-
-3. Sampling and Visualization
-
-For each population, we:
+Where:
 
 
 
 
 
-Draw random samples of sizes $n = 5, 10, 30, 50$.
+$T$ is the period of oscillation,
 
 
 
-Compute the sample mean for each sample.
+$L$ is the length of the pendulum (from the suspension point to the center of the weight),
 
 
 
-Repeat this process 1,000 times to construct the sampling distribution of the sample mean.
+$g$ is the acceleration due to gravity.
+
+Rearranging for $g$, we get:
+
+[ g = \frac{4\pi^2 L}{T^2} ]
+
+Uncertainty Propagation
+
+The uncertainty in $g$, denoted $\Delta g$, is derived using error propagation. Given the formula for $g$, the relative uncertainty is:
+
+[ \frac{\Delta g}{g} = \sqrt{\left(\frac{\Delta L}{L}\right)^2 + \left(2 \frac{\Delta T}{T}\right)^2} ]
+
+Thus:
+
+[ \Delta g = g \sqrt{\left(\frac{\Delta L}{L}\right)^2 + \left(2 \frac{\Delta T}{T}\right)^2} ]
+
+Where $\Delta L$ is the uncertainty in length, and $\Delta T$ is the uncertainty in the period.
+
+3. Experimental Procedure
+
+Materials
 
 
 
-Plot histograms of the sample means to visualize convergence to a normal distribution.
 
-4. Parameter Exploration
 
-Shape and Sample Size
-
-The shape of the population distribution affects the rate of convergence:
+A string (approximately 1.5 meters long).
 
 
 
-
-
-Symmetric distributions (e.g., uniform, binomial) converge faster.
+A small weight (e.g., bag of coins, sugar, or key).
 
 
 
-Skewed distributions (e.g., exponential) require larger sample sizes for normality.
+A stopwatch or smartphone timer.
 
-Variance Impact
 
-The variance of the sampling distribution is $\frac{\sigma^2}{n}$, where $\sigma^2$ is the population variance. Larger $n$ reduces the spread, and populations with larger $\sigma^2$ result in wider sampling distributions.
 
-5. Implementation: Python Simulation
+A ruler or measuring tape.
 
-Below is a Python script that implements the simulations and visualizations using NumPy for data generation and Matplotlib/Seaborn for plotting.
+Setup
 
- import numpy as np import matplotlib.pyplot as plt import seaborn as sns
 
-Set random seed for reproducibility
 
-np.random.seed(42)
 
-Generate population datasets
 
-population_size = 10000 uniform_pop = np.random.uniform(0, 10, population_size) # Uniform [0, 10] exponential_pop = np.random.exponential(scale=1, size=population_size) # Exponential, lambda=1 binomial_pop = np.random.binomial(n=10, p=0.5, size=population_size) # Binomial, n=10, p=0.5
+Attach the weight to the string and fix the other end to a sturdy support.
 
-Store populations
 
-populations = { 'Uniform': uniform_pop, 'Exponential': exponential_pop, 'Binomial': binomial_pop }
 
-Simulation parameters
+Measure the length $L$ from the suspension point to the center of the weight using a ruler. Record the resolution of the ruler (e.g., 1 mm) and calculate the uncertainty:
 
-sample_sizes = [5, 10, 30, 50] num_samples = 1000 # Number of samples for each sample size
+[ \Delta L = \frac{\text{Ruler Resolution}}{2} ]
 
-Plotting
+Data Collection
 
-plt.figure(figsize=(15, 12)) plot_idx = 1
 
-for dist_name, population in populations.items(): for sample_size in sample_sizes: # Compute sample means sample_means = [np.mean(np.random.choice(population, sample_size)) for _ in range(num_samples)]
 
-![alt text](image.png)
-![alt text](image-1.png)
 
-    # Plot histogram with KDE
-    plt.subplot(len(populations), len(sample_sizes), plot_idx)
-    sns.histplot(sample_means, bins=30, kde=True, stat='density')
-    plt.title(f'{dist_name}\nSample Size = {sample_size}')
-    plt.xlabel('Sample Mean')
-    plt.ylabel('Density')
-    plt.tight_layout()
-    plot_idx += 1
+
+Displace the pendulum slightly (about 15°) and release it.
+
+
+
+Measure the time for 10 full oscillations ($T_{10}$) using a stopwatch. Repeat this process 10 times.
+
+
+
+For each trial, compute the period for one oscillation:
+
+[ T = \frac{T_{10}}{10} ]
+
+
+
+
+
+Calculate the mean period $\overline{T}$ across the 10 trials:
+
+[ \overline{T} = \frac{1}{10} \sum_{i=1}^{10} T_i ]
+
+
+
+
+
+Compute the standard deviation of the 10 measurements of $T_{10}$, denoted $\sigma_{T_{10}}$:
+
+[ \sigma_{T_{10}} = \sqrt{\frac{1}{10} \sum_{i=1}^{10} (T_{10,i} - \overline{T}_{10})^2} ]
+
+
+
+
+
+The uncertainty in the mean $T_{10}$ is:
+
+[ \Delta T_{10} = \frac{\sigma_{T_{10}}}{\sqrt{10}} ]
+
+
+
+
+
+The period $T$ and its uncertainty are:
+
+[ \overline{T} = \frac{\overline{T}{10}}{10}, \quad \Delta T = \frac{\Delta T{10}}{10} ]
+
+
+Length L = 1.500 ± 0.00050 m
+
+Mean period T = 2.014 ± 0.00120 s
+
+Calculated g = 14.605 ± 0.018 m/s²
+
+
+
+5. Analysis
+
+Comparison with Standard Value
+The standard value of $g$ is approximately $9.81 , \text{m/s}^2$. The calculated $g = 9.823 \pm 0.018 , \text{m/s}^2$ is consistent with this value within the uncertainty, indicating a successful measurement.
+
+Sources of Uncertainty
+
+Measurement Resolution ($\Delta L$): A ruler with 1 mm resolution contributes $\Delta L = 0.0005 , \text{m}$. Using a more precise tool (e.g., caliper) could reduce this.
+Timing Variability ($\Delta T$): Human reaction time in starting/stopping the stopwatch introduces variability. Using an electronic timer or motion sensor could improve precision.
+Assumptions and Limitations: The formula assumes small-angle oscillations and neglects air resistance and string mass. Large angles or environmental factors (e.g., air drag) could skew results.
+
+6. Discussion
+The experiment successfully measures $g$, but uncertainties highlight the importance of precise tools and techniques. Variability in timing has a larger impact on $\Delta g$ due to the factor of 2 in the error propagation ($2 \frac{\Delta T}{T}$). Future improvements could include automated timing systems and multiple length measurements to reduce $\Delta L$.
+
+
+![alt text](<Screenshot 2025-04-23 171832.png>)
