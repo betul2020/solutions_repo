@@ -230,21 +230,23 @@ Oscillating Circuits: Driven RLC circuits mirror the pendulum’s dynamics, used
 <img alt="alt text" src="../image-1.png"/>
 <img alt="alt text" src="../image-2.png"/>
 <img alt="alt text" src="../image-3.png"/>
-<img alt="alt text" src="../image-4.png"/>
-Deliverables
-General Solutions
-For small angles, the solution is a damped transient plus a steady-state oscillation. Beyond this, numerical methods like RK4 capture nonlinear dynamics.</p>
+<img alt="alt text" src="../image-4.png"/></p>
 </li>
 </ol>
-<p>Graphical Representations
-The script generates plots for varying <span class="arithmatex">\(b\)</span>, <span class="arithmatex">\(F\)</span>, and <span class="arithmatex">\(\omega\)</span>. Increase <span class="arithmatex">\(F\)</span> (e.g., 7.5) to observe chaos, or set <span class="arithmatex">\(\omega \approx \omega_0\)</span> for resonance.</p>
-<p>Limitations and Extensions
-Limitations: Assumes constant <span class="arithmatex">\(b\)</span> and periodic forcing; real systems may have nonlinear damping or noise.
-Extensions: Add nonlinear damping (<span class="arithmatex">\(b|\dot{\theta}|\dot{\theta}\)</span>) or aperiodic forcing for richer dynamics.
-Advanced Analysis
-Phase Portraits: Show transitions from periodic to chaotic motion.
-Poincaré Sections: Highlight bifurcations and chaos onset.
-Bifurcation Diagrams: Plot <span class="arithmatex">\(\theta\)</span> at fixed <span class="arithmatex">\(t\)</span> vs. <span class="arithmatex">\(F\)</span> to map dynamic regimes (not implemented here but feasible with parameter sweeps).</p>
+<p>Visualizations
+Motion Plot: Displays <span class="arithmatex">\(\theta(t)\)</span>, showing periodic or chaotic behavior.
+Phase Diagram: Plots <span class="arithmatex">\(\theta\)</span> vs. <span class="arithmatex">\(\frac{d\theta}{dt}\)</span>, illustrating trajectories.
+Poincaré Section: Samples at <span class="arithmatex">\(t = \frac{2\pi n}{\omega}\)</span>, revealing periodicity or chaos.
+Bifurcation Diagram: Shows <span class="arithmatex">\(\theta\)</span> vs. <span class="arithmatex">\(A\)</span>, highlighting transitions to chaos.</p>
+<ol>
+<li>Discussion and Limitations
+Limitations: The model assumes constant damping and periodic forcing, ignoring nonlinear damping or stochastic effects.
+Extensions: Incorporate nonlinear damping (<span class="arithmatex">\(b(\theta)\)</span>) or non-periodic forcing to better model real systems.
+Insights: The system transitions from periodic to chaotic motion as <span class="arithmatex">\(A\)</span> increases, with bifurcations indicating the onset of chaos.</li>
+<li>References
+Strogatz, S. H. (2018). Nonlinear Dynamics and Chaos.
+Baker, G. L., &amp; Gollub, J. P. (1996). Chaotic Dynamics: An Introduction.</li>
+</ol>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
