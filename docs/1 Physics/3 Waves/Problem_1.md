@@ -65,14 +65,13 @@ We simulate interference patterns for sources at the vertices of a regular polyg
 
 ## Results
 
-### Interference Pattern
-The script generates a contour plot (`interference_pattern.png`) showing the wave displacement for \( N = 4 \) sources (square configuration):
+### Interference Pattern showing the wave displacement for \( N = 4 \) sources (square configuration):
 - Bright and dark regions indicate constructive and destructive interference, respectively.
 - Symmetry reflects the regular arrangement of sources.
 - The pattern radiates outward, with amplitude decreasing as \( 1/r \).
 
 ### Displacement Analysis
-A line plot (`displacement_line.png`) along \( y = 0 \) shows the displacement \( \eta_{\text{sum}}(x, 0, t) \):
+A line plot along \( y = 0 \) shows the displacement \( \eta_{\text{sum}}(x, 0, t) \):
 - Peaks and troughs highlight interference effects.
 - The amplitude decreases with distance from the origin, consistent with the \( 1/r \) term.
 
