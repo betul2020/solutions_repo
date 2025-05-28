@@ -40,8 +40,7 @@ Second Cosmic Velocity
 
 Escape velocity is derived from conservation of energy, setting total energy to zero at infinity: $ v_2 = \sqrt{\frac{2GM}{R}} $
 
-Third Cosmic Velocity
-To escape the Solar System, consider the Sun's mass ($M_\sun = 1.989 \times 10^{30} , \text{kg}$) and the distance from the Sun (e.g., Earth's orbital radius $R_\text{Earth} = 1.496 \times 10^{11} , \text{m}$): $ v_3 = \sqrt{\frac{2GM_\sun}{R_\text{Earth}}} $
+![alt text](<Screenshot 2025-05-28 161637.png>)
 
 3. Calculations and Visualizations
 
