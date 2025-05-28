@@ -173,8 +173,9 @@
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
 <p>Investigating the Dynamics of a Forced Damped Pendulum
-Motivation
-The forced damped pendulum is a fascinating system that evolves from simple harmonic motion to complex dynamics due to the interplay of damping, gravitational restoring forces, and external periodic forcing. This system exhibits behaviors such as resonance, quasiperiodicity, and chaos, making it a cornerstone for studying nonlinear dynamics in physics and engineering. Applications range from energy harvesting to understanding structural vibrations, providing insights into both natural and engineered systems.</p>
+Motivation</p>
+<p>The forced damped pendulum is a fascinating system that evolves from simple harmonic motion to complex dynamics due to the interplay of damping, gravitational restoring forces, and external periodic forcing. </p>
+<p>This system exhibits behaviors such as resonance, quasiperiodicity, and chaos, making it a cornerstone for studying nonlinear dynamics in physics and engineering. Applications range from energy harvesting to understanding structural vibrations, providing insights into both natural and engineered systems.</p>
 <ol>
 <li>Theoretical Foundation
 Differential Equation
@@ -213,28 +214,26 @@ For the driving term <span class="arithmatex">\(F \cos(\omega t)\)</span>, assum
 <p>Resonance Conditions
 Resonance occurs when <span class="arithmatex">\(\omega \approx \omega_0\)</span>, maximizing the amplitude <span class="arithmatex">\(A\)</span>. The energy input from the driving force matches the natural oscillation, leading to large oscillations if damping is low. Peak amplitude is limited by <span class="arithmatex">\(b\)</span>, with <span class="arithmatex">\(A_{\text{max}} \approx \frac{F}{b\omega_0}\)</span> near resonance.</p>
 <ol>
-<li>
-<p>Analysis of Dynamics
+<li>Analysis of Dynamics
 Influence of Parameters
 Damping Coefficient (<span class="arithmatex">\(b\)</span>): Low <span class="arithmatex">\(b\)</span> allows sustained oscillations; high <span class="arithmatex">\(b\)</span> suppresses motion, preventing chaos or resonance.
-Driving Amplitude (<span class="arithmatex">\(F\)</span>): Larger <span class="arithmatex">\(F\)</span> increases oscillation amplitude and can push the system into nonlinear regimes (beyond small-angle approximation), leading to chaos.
-Driving Frequency (<span class="arithmatex">\(\omega\)</span>): Near <span class="arithmatex">\(\omega_0\)</span>, resonance amplifies motion; far from <span class="arithmatex">\(\omega_0\)</span>, the system may exhibit quasiperiodic or chaotic behavior depending on <span class="arithmatex">\(F\)</span> and <span class="arithmatex">\(b\)</span>.
-Transition to Chaos
-For large <span class="arithmatex">\(F\)</span> or specific <span class="arithmatex">\(\omega\)</span>, the nonlinear term <span class="arithmatex">\(\sin(\theta)\)</span> dominates, causing period-doubling bifurcations and chaotic motion. This is observable in phase portraits and Poincaré sections, where trajectories shift from closed loops to scattered points.</p>
-</li>
-<li>
-<p>Practical Applications
+Driving Amplitude (<span class="arithmatex">\(F\)</span>): Larger <span class="arithmatex">\(F\)</span> increases oscillation amplitude and can push the system into nonlinear regimes (beyond small-angle approximation), leading to chaos.</li>
+</ol>
+<p>Driving Frequency (<span class="arithmatex">\(\omega\)</span>): Near <span class="arithmatex">\(\omega_0\)</span>, resonance amplifies motion; far from <span class="arithmatex">\(\omega_0\)</span>, the system may exhibit quasiperiodic or chaotic behavior depending on <span class="arithmatex">\(F\)</span> and <span class="arithmatex">\(b\)</span>.</p>
+<p>Transition to Chaos</p>
+<p>For large <span class="arithmatex">\(F\)</span> or specific <span class="arithmatex">\(\omega\)</span>, the nonlinear term <span class="arithmatex">\(\sin(\theta)\)</span> dominates, causing period-doubling bifurcations and chaotic motion. This is observable in phase portraits and Poincaré sections, where trajectories shift from closed loops to scattered points.</p>
+<ol>
+<li>Practical Applications
 Energy Harvesting: Pendulum-based devices convert mechanical vibrations into electrical energy.
 Suspension Bridges: Forced oscillations model wind-induced vibrations, informing damping design.
 Oscillating Circuits: Driven RLC circuits mirror the pendulum’s dynamics, used in signal processing.
 <img alt="alt text" src="../image-1.png"/>
 <img alt="alt text" src="../image-2.png"/>
 <img alt="alt text" src="../image-3.png"/>
-<img alt="alt text" src="../image-4.png"/></p>
-</li>
+<img alt="alt text" src="../image-4.png"/></li>
 </ol>
-<p>Visualizations
-Motion Plot: Displays <span class="arithmatex">\(\theta(t)\)</span>, showing periodic or chaotic behavior.
+<p>Visualizations</p>
+<p>Motion Plot: Displays <span class="arithmatex">\(\theta(t)\)</span>, showing periodic or chaotic behavior.
 Phase Diagram: Plots <span class="arithmatex">\(\theta\)</span> vs. <span class="arithmatex">\(\frac{d\theta}{dt}\)</span>, illustrating trajectories.
 Poincaré Section: Samples at <span class="arithmatex">\(t = \frac{2\pi n}{\omega}\)</span>, revealing periodicity or chaos.
 Bifurcation Diagram: Shows <span class="arithmatex">\(\theta\)</span> vs. <span class="arithmatex">\(A\)</span>, highlighting transitions to chaos.</p>
