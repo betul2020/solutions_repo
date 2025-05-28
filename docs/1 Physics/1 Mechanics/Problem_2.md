@@ -1,7 +1,11 @@
 # Problem 2 
 Investigating the Dynamics of a Forced Damped Pendulum
 Motivation
-The forced damped pendulum is a fascinating system that evolves from simple harmonic motion to complex dynamics due to the interplay of damping, gravitational restoring forces, and external periodic forcing. This system exhibits behaviors such as resonance, quasiperiodicity, and chaos, making it a cornerstone for studying nonlinear dynamics in physics and engineering. Applications range from energy harvesting to understanding structural vibrations, providing insights into both natural and engineered systems.
+
+
+The forced damped pendulum is a fascinating system that evolves from simple harmonic motion to complex dynamics due to the interplay of damping, gravitational restoring forces, and external periodic forcing. 
+
+This system exhibits behaviors such as resonance, quasiperiodicity, and chaos, making it a cornerstone for studying nonlinear dynamics in physics and engineering. Applications range from energy harvesting to understanding structural vibrations, providing insights into both natural and engineered systems.
 
 1. Theoretical Foundation
 Differential Equation
@@ -62,8 +66,12 @@ Resonance occurs when $\omega \approx \omega_0$, maximizing the amplitude $A$. T
 Influence of Parameters
 Damping Coefficient ($b$): Low $b$ allows sustained oscillations; high $b$ suppresses motion, preventing chaos or resonance.
 Driving Amplitude ($F$): Larger $F$ increases oscillation amplitude and can push the system into nonlinear regimes (beyond small-angle approximation), leading to chaos.
+
+
 Driving Frequency ($\omega$): Near $\omega_0$, resonance amplifies motion; far from $\omega_0$, the system may exhibit quasiperiodic or chaotic behavior depending on $F$ and $b$.
+
 Transition to Chaos
+
 For large $F$ or specific $\omega$, the nonlinear term $\sin(\theta)$ dominates, causing period-doubling bifurcations and chaotic motion. This is observable in phase portraits and Poincaré sections, where trajectories shift from closed loops to scattered points.
 
 3. Practical Applications
@@ -76,6 +84,7 @@ Oscillating Circuits: Driven RLC circuits mirror the pendulum’s dynamics, used
 ![alt text](image-4.png)
 
 Visualizations
+
 Motion Plot: Displays $\theta(t)$, showing periodic or chaotic behavior.
 Phase Diagram: Plots $\theta$ vs. $\frac{d\theta}{dt}$, illustrating trajectories.
 Poincaré Section: Samples at $t = \frac{2\pi n}{\omega}$, revealing periodicity or chaos.
