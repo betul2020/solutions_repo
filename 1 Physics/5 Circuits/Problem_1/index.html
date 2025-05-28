@@ -202,13 +202,15 @@ If no reductions are possible, the graph may be non-series-parallel (e.g., a bri
 <p>Test Cases
 The implementation is tested on three circuits to demonstrate its ability to handle simple and nested configurations.
 Example 1: Simple Series</p>
-<p>Circuit: Two resistors, <span class="arithmatex">\(R_1 = 2 , \Omega\)</span> and <span class="arithmatex">\(R_2 = 3 , \Omega\)</span>, in series between nodes 0 and 2 via node 1.
+<p>Circuit: </p>
+<p>Two resistors, <span class="arithmatex">\(R_1 = 2 , \Omega\)</span> and <span class="arithmatex">\(R_2 = 3 , \Omega\)</span>, in series between nodes 0 and 2 via node 1.
 Calculation:[R_{eq} = R_1 + R_2 = 2 + 3 = 5 , \Omega]
 Output: Simple Series: Equivalent Resistance = 5.00 Ω</p>
 <p><img alt="alt text" src="../Screenshot%202025-05-28%20162444.png"/></p>
 <p>Efficiency Analysis
 Time Complexity</p>
-<p>Series Reduction: Finding a series pair involves checking node degrees, which takes <span class="arithmatex">\(O(V + E)\)</span> per iteration, where <span class="arithmatex">\(V\)</span> is the number of nodes and <span class="arithmatex">\(E\)</span> is the number of edges.
+<p>Series Reduction:</p>
+<p>Finding a series pair involves checking node degrees, which takes <span class="arithmatex">\(O(V + E)\)</span> per iteration, where <span class="arithmatex">\(V\)</span> is the number of nodes and <span class="arithmatex">\(E\)</span> is the number of edges.
 Parallel Reduction: Checking for multiple edges is <span class="arithmatex">\(O(E)\)</span>.
 Iterations: For series-parallel graphs, the number of reductions is proportional to <span class="arithmatex">\(V + E\)</span>, as each reduction removes at least one node or edge.
 Total: Approximately <span class="arithmatex">\(O((V + E)^2)\)</span> in the worst case for series-parallel graphs.</p>
@@ -229,8 +231,8 @@ Cache node degrees to avoid recomputing them in each iteration.</p>
 <p>Alternative Methods:</p>
 <p>Use Laplacian matrix techniques to compute equivalent resistance directly by solving a linear system, though this has a higher complexity (<span class="arithmatex">\(O(V^3)\)</span>).
 Apply Kirchhoff’s laws or nodal analysis for complex graphs, integrating them with graph-based reductions.</p>
-<p>Conclusion
-This implementation provides a robust solution for computing equivalent resistance in series-parallel circuits using graph theory. The algorithm is intuitive, leverages the power of graph representations, and handles nested configurations effectively. While limited to series-parallel graphs, it serves as a foundation for more advanced techniques and demonstrates the synergy between electrical engineering and graph theory. Future enhancements could include support for non-series-parallel graphs and optimized traversal strategies to improve performance on large-scale circuits.</p>
+<p>Conclusion</p>
+<p>This implementation provides a robust solution for computing equivalent resistance in series-parallel circuits using graph theory. The algorithm is intuitive, leverages the power of graph representations, and handles nested configurations effectively. While limited to series-parallel graphs, it serves as a foundation for more advanced techniques and demonstrates the synergy between electrical engineering and graph theory. Future enhancements could include support for non-series-parallel graphs and optimized traversal strategies to improve performance on large-scale circuits.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
