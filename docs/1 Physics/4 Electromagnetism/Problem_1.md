@@ -5,11 +5,9 @@ This document implements a simulation to explore the motion of a charged particl
 $$ \mathbf{F} = q\mathbf{E} + q\mathbf{v} \times \mathbf{B} $$
 where:
 
-$ \mathbf{F} $ is the force on the particle,
-$ q $ is the charge of the particle,
-$ \mathbf{E} $ is the electric field,
-$ \mathbf{v} $ is the velocity of the particle,
-$ \mathbf{B} $ is the magnetic field.
+![alt text](<Screenshot 2025-05-28 170115.png>)
+
+
 
 We will simulate the particle's trajectory under various field configurations, visualize the results in 2D and 3D, and discuss their relevance to real-world systems.
 
