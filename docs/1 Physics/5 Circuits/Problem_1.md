@@ -19,13 +19,8 @@ Identify a node with degree 1 (connected to one neighbor) whose neighbor has deg
 For resistors $R_1$ and $R_2$ in series, replace them with a single resistor with resistance:[R_{eq} = R_1 + R_2]
 Update the graph by removing the degree-2 node and adding an edge with the summed resistance.
 
-
-Parallel Reduction:
-
-Identify two nodes with multiple edges between them, indicating parallel resistors.
-For resistors $R_1, R_2, \ldots, R_n$ in parallel, compute the equivalent resistance using:[\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}]or equivalently:[R_{eq} = \frac{1}{\sum_{i=1}^n \frac{1}{R_i}}]
-Replace the multiple edges with a single edge of equivalent resistance.
-
+![alt text](image-4.png)
+**Output**: Nested Series-Parallel: Equivalent Resistance = \( 4.00 \, \Omega \)
 
 Iterative Simplification:
 
@@ -57,21 +52,7 @@ Circuit: Two resistors, $R_1 = 2 , \Omega$ and $R_2 = 3 , \Omega$, in series bet
 Calculation:[R_{eq} = R_1 + R_2 = 2 + 3 = 5 , \Omega]
 Output: Simple Series: Equivalent Resistance = 5.00 Ω
 
-Example 2: Simple Parallel
-
-Circuit: Two resistors, $R_1 = 2 , \Omega$ and $R_2 = 3 , \Omega$, in parallel between nodes 0 and 1.
-Calculation:[\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} = \frac{1}{2} + \frac{1}{3} = \frac{3}{6} + \frac{2}{6} = \frac{5}{6}][R_{eq} = \frac{6}{5} = 1.2 , \Omega]
-Output: Simple Parallel: Equivalent Resistance = 1.20 Ω
-
-Example 3: Nested Series-Parallel
-
-Circuit: A resistor $R_1 = 2 , \Omega$ in series with a parallel combination of $R_2 = 3 , \Omega$ and $R_3 = 6 , \Omega$ between nodes 0 and 2 via node 1.
-Calculation:
-Parallel part:[\frac{1}{R_{parallel}} = \frac{1}{R_2} + \frac{1}{R_3} = \frac{1}{3} + \frac{1}{6} = \frac{2}{6} + \frac{1}{6} = \frac{3}{6}][R_{parallel} = \frac{6}{3} = 2 , \Omega]
-Total:[R_{eq} = R_1 + R_{parallel} = 2 + 2 = 4 , \Omega]
-
-
-Output: Nested Series-Parallel: Equivalent Resistance = 4.00 Ω
+![alt text](<Screenshot 2025-05-28 162444.png>)
 
 Efficiency Analysis
 Time Complexity
