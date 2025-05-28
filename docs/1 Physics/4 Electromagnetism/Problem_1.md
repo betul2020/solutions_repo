@@ -47,10 +47,12 @@ Theoretical Drift Velocity (E x B): -1.00e+03 m/s (y-direction)
 ![alt text](image-2.png)
 
 3. Parameter Exploration
+
 We explore how the following parameters affect the trajectory:
 
 Field Strengths ($ \mathbf{E}, \mathbf{B} $):
-Increasing $ B_z $ tightens the circular motion (smaller Larmor radius, $ r_L = \frac{mv_\perp}{|q|B} $).
+Increasing $ B_z $ tightens the circular motion (smaller Larmor radius, 
+$ r_L = \frac{mv_\perp}{|q|B} $).
 Increasing $ E_x $ enhances the drift velocity in crossed fields, given by $ \mathbf{v}_d = \frac{\mathbf{E} \times \mathbf{B}}{B^2} $.
 
 
@@ -60,17 +62,18 @@ Charge ($ q $) and Mass ($ m $): Larger $ |q| $ or smaller $ m $ results in tigh
 Observations
 
 Uniform Magnetic Field: The particle follows a helical path (circular in the x-y plane, linear along z if $ v_z \neq 0 $).
-Crossed Fields: The particle exhibits drift motion along the y-axis due to the $ \mathbf{E} \times \mathbf{B} $ effect, superimposed on the helical motion.
-The Larmor radius and drift velocity match theoretical predictions, as seen in the plots.
+Crossed Fields: The particle exhibits drift motion along the y-axis due to the $ 
+\mathbf{E} \times \mathbf{B} $ effect, superimposed on the helical motion.
 
 
 4. Visualizations
+
 The script generates two plots:
 
 2D Plot (x-y plane): Shows the circular/helical projection of the trajectory.
 3D Plot: Displays the full 3D path, highlighting any drift or helical motion.
 
-These plots are saved as trajectory_2d.png and trajectory_3d.png.
+
 
 5. Discussion: Relevance to Practical Systems
 
