@@ -14,8 +14,14 @@ Second Cosmic Velocity (Escape Velocity): The speed needed for an object to esca
 
 Third Cosmic Velocity (Escape from Star System): The speed required to escape the gravitational pull of a star system (e.g., the Solar System), considering the mass of the star and the distance from it. This applies to interstellar travel.
 
+
+
 ![alt text](image-4.png)
+
+
+
 2. Mathematical Derivations and Parameters
+
 
 The velocities can be derived using gravitational principles. Let’s denote:
 
@@ -43,4 +49,4 @@ Second Cosmic Velocity
 
 3. Calculations and Visualizations
 
-Below is a Python script to calculate and visualize the velocities for Earth, Mars, and Jupiter. The script uses matplotlib for graphical representations.
+![alt text](<Screenshot 2025-05-28 165536.png>)
