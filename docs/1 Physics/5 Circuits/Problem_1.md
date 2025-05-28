@@ -2,10 +2,15 @@
 
 Calculating Equivalent Resistance Using Graph Theory
 Introduction
-Calculating the equivalent resistance of a circuit is a fundamental problem in electrical engineering. Traditional methods rely on iteratively applying series and parallel resistor formulas, which can become complex for intricate circuits. Graph theory provides a systematic alternative by representing circuits as graphs, where nodes are junctions, edges are resistors, and edge weights are resistance values. This approach simplifies analysis, enables automation, and is widely applicable in circuit simulation, network design, and optimization.
+Calculating the equivalent resistance of a circuit is a fundamental problem in electrical engineering.
+
+ Traditional methods rely on iteratively applying series and parallel resistor formulas, which can become complex for intricate circuits. Graph theory provides a systematic alternative by representing circuits as graphs, where nodes are junctions, edges are resistors, and edge weights are resistance values. This approach simplifies analysis, enables automation, and is widely applicable in circuit simulation, network design, and optimization.
+
 This document implements an algorithm to compute the equivalent resistance of a circuit using graph theory. The implementation is in Python with the networkx library, handling arbitrary series-parallel configurations. We test the algorithm on three example circuits and analyze its efficiency and potential improvements.
 Algorithm Description
-The algorithm iteratively simplifies a circuit graph by reducing series and parallel connections until a single edge remains between the source and sink nodes, representing the equivalent resistance. The key steps are:
+The algorithm iteratively simplifies a circuit graph by reducing series and parallel connections until a single edge remains between the source and sink nodes, representing the equivalent resistance. 
+
+the key steps are:
 
 Graph Representation:
 
