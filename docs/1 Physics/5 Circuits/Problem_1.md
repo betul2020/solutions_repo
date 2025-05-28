@@ -48,7 +48,9 @@ Test Cases
 The implementation is tested on three circuits to demonstrate its ability to handle simple and nested configurations.
 Example 1: Simple Series
 
-Circuit: Two resistors, $R_1 = 2 , \Omega$ and $R_2 = 3 , \Omega$, in series between nodes 0 and 2 via node 1.
+Circuit: 
+
+Two resistors, $R_1 = 2 , \Omega$ and $R_2 = 3 , \Omega$, in series between nodes 0 and 2 via node 1.
 Calculation:[R_{eq} = R_1 + R_2 = 2 + 3 = 5 , \Omega]
 Output: Simple Series: Equivalent Resistance = 5.00 Ω
 
@@ -57,7 +59,9 @@ Output: Simple Series: Equivalent Resistance = 5.00 Ω
 Efficiency Analysis
 Time Complexity
 
-Series Reduction: Finding a series pair involves checking node degrees, which takes $O(V + E)$ per iteration, where $V$ is the number of nodes and $E$ is the number of edges.
+Series Reduction:
+
+ Finding a series pair involves checking node degrees, which takes $O(V + E)$ per iteration, where $V$ is the number of nodes and $E$ is the number of edges.
 Parallel Reduction: Checking for multiple edges is $O(E)$.
 Iterations: For series-parallel graphs, the number of reductions is proportional to $V + E$, as each reduction removes at least one node or edge.
 Total: Approximately $O((V + E)^2)$ in the worst case for series-parallel graphs.
@@ -73,6 +77,7 @@ The algorithm is limited to series-parallel graphs. Non-series-parallel configur
 Repeated graph traversals can be inefficient for large graphs.
 
 Potential Improvements
+
 
 Advanced Reductions:
 
@@ -98,4 +103,5 @@ Apply Kirchhoff’s laws or nodal analysis for complex graphs, integrating them 
 
 
 Conclusion
+
 This implementation provides a robust solution for computing equivalent resistance in series-parallel circuits using graph theory. The algorithm is intuitive, leverages the power of graph representations, and handles nested configurations effectively. While limited to series-parallel graphs, it serves as a foundation for more advanced techniques and demonstrates the synergy between electrical engineering and graph theory. Future enhancements could include support for non-series-parallel graphs and optimized traversal strategies to improve performance on large-scale circuits.
