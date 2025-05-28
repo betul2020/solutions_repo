@@ -38,7 +38,6 @@ This arises from equating gravitational force to centripetal force: $ \frac{GMm}
 
 Second Cosmic Velocity
 
-Escape velocity is derived from conservation of energy, setting total energy to zero at infinity: $ v_2 = \sqrt{\frac{2GM}{R}} $
 
 ![alt text](<Screenshot 2025-05-28 161637.png>)
 
