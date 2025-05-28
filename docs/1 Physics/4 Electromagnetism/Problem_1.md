@@ -21,9 +21,7 @@ Plasma Confinement (e.g., Tokamaks): Crossed electric and magnetic fields confin
 Astrophysical Phenomena: Charged particles in Earth's magnetosphere follow helical paths due to the planet's magnetic field.
 
 In these systems:
-
-Electric Fields ($ \mathbf{E} $): Accelerate particles, contributing to a linear force component.
-Magnetic Fields ($ \mathbf{B} $): Cause particles to gyrate, leading to circular or helical motion via the $ \mathbf{v} \times \mathbf{B} $ term.
+![alt text](<Screenshot 2025-05-28 164432.png>)
 
 
 2. Simulate Particle Motion
@@ -36,9 +34,7 @@ $$ \frac{d\mathbf{r}}{dt} = \mathbf{v} $$
 where $ \mathbf{r} $ is the position of the particle. We solve these differential equations numerically using the Runge-Kutta 4th-order (RK4) method for better accuracy compared to the Euler method.
 Field Configurations
 
-Uniform Magnetic Field: $ \mathbf{B} = (0, 0, B_z) $, $ \mathbf{E} = 0 $.
-Combined Fields: $ \mathbf{E} = (E_x, 0, 0) $, $ \mathbf{B} = (0, 0, B_z) $.
-Crossed Fields: $ \mathbf{E} $ and $ \mathbf{B} $ are perpendicular, leading to drift motion.
+![alt text](<Screenshot 2025-05-28 164627.png>)
 
 Theoretical Larmor Radius: 1.48e-03 m
 Theoretical Drift Velocity (E x B): -1.00e+03 m/s (y-direction)
@@ -48,22 +44,10 @@ Theoretical Drift Velocity (E x B): -1.00e+03 m/s (y-direction)
 
 3. Parameter Exploration
 
-We explore how the following parameters affect the trajectory:
+![alt text](<Screenshot 2025-05-28 164759.png>)
 
-Field Strengths ($ \mathbf{E}, \mathbf{B} $):
-Increasing $ B_z $ tightens the circular motion (smaller Larmor radius, 
-$ r_L = \frac{mv_\perp}{|q|B} $).
-Increasing $ E_x $ enhances the drift velocity in crossed fields, given by $ \mathbf{v}_d = \frac{\mathbf{E} \times \mathbf{B}}{B^2} $.
+![alt text](<Screenshot 2025-05-28 165047.png>)
 
-
-Initial Velocity ($ \mathbf{v} $): Higher $ v_\perp $ (perpendicular to $ \mathbf{B} $) increases the Larmor radius.
-Charge ($ q $) and Mass ($ m $): Larger $ |q| $ or smaller $ m $ results in tighter gyration.
-
-Observations
-
-Uniform Magnetic Field: The particle follows a helical path (circular in the x-y plane, linear along z if $ v_z \neq 0 $).
-Crossed Fields: The particle exhibits drift motion along the y-axis due to the $ 
-\mathbf{E} \times \mathbf{B} $ effect, superimposed on the helical motion.
 
 
 4. Visualizations
@@ -77,14 +61,14 @@ The script generates two plots:
 
 5. Discussion: Relevance to Practical Systems
 
-Cyclotrons: The simulation's helical motion in a uniform $ \mathbf{B} $-field mirrors the circular paths in cyclotrons, where particles are accelerated by an oscillating $ \mathbf{E} $-field.
+Cyclotrons: The simulation's helical motion in a uniform mirrors the circular paths in cyclotrons, where particles are accelerated by an oscillating .
 Magnetic Traps: Crossed fields in our simulation produce drift motion, similar to how magnetic traps confine plasma by inducing controlled drifts.
 The observed Larmor radius and drift velocity align with theoretical expectations, validating the simulation's accuracy for real-world applications.
 
 
 6. Suggestions for Extension
 
-Simulate non-uniform fields (e.g., $ \mathbf{B} $ varying with position) to model more complex systems like magnetic bottles.
+Simulate non-uniform fields (e.g., varying with position) to model more complex systems like magnetic bottles.
 Introduce relativistic effects for high-speed particles, modifying the Lorentz force equation.
 Add multiple particles to study collective behavior, such as in plasmas.
 
