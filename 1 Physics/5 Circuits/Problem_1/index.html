@@ -185,10 +185,8 @@ Use a multigraph to allow multiple edges between nodes, representing parallel re
 <p>Identify a node with degree 1 (connected to one neighbor) whose neighbor has degree 2 (connected to two nodes), indicating a series connection.
 For resistors <span class="arithmatex">\(R_1\)</span> and <span class="arithmatex">\(R_2\)</span> in series, replace them with a single resistor with resistance:[R_{eq} = R_1 + R_2]
 Update the graph by removing the degree-2 node and adding an edge with the summed resistance.</p>
-<p>Parallel Reduction:</p>
-<p>Identify two nodes with multiple edges between them, indicating parallel resistors.
-For resistors <span class="arithmatex">\(R_1, R_2, \ldots, R_n\)</span> in parallel, compute the equivalent resistance using:[\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}]or equivalently:[R_{eq} = \frac{1}{\sum_{i=1}^n \frac{1}{R_i}}]
-Replace the multiple edges with a single edge of equivalent resistance.</p>
+<p><img alt="alt text" src="../image-4.png"/>
+<strong>Output</strong>: Nested Series-Parallel: Equivalent Resistance = <span class="arithmatex">\( 4.00 \, \Omega \)</span></p>
 <p>Iterative Simplification:</p>
 <p>Repeatedly apply series or parallel reductions until the graph has one edge between the source and sink nodes.
 The weight of this edge is the equivalent resistance.
@@ -207,16 +205,7 @@ Example 1: Simple Series</p>
 <p>Circuit: Two resistors, <span class="arithmatex">\(R_1 = 2 , \Omega\)</span> and <span class="arithmatex">\(R_2 = 3 , \Omega\)</span>, in series between nodes 0 and 2 via node 1.
 Calculation:[R_{eq} = R_1 + R_2 = 2 + 3 = 5 , \Omega]
 Output: Simple Series: Equivalent Resistance = 5.00 Ω</p>
-<p>Example 2: Simple Parallel</p>
-<p>Circuit: Two resistors, <span class="arithmatex">\(R_1 = 2 , \Omega\)</span> and <span class="arithmatex">\(R_2 = 3 , \Omega\)</span>, in parallel between nodes 0 and 1.
-Calculation:[\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} = \frac{1}{2} + \frac{1}{3} = \frac{3}{6} + \frac{2}{6} = \frac{5}{6}][R_{eq} = \frac{6}{5} = 1.2 , \Omega]
-Output: Simple Parallel: Equivalent Resistance = 1.20 Ω</p>
-<p>Example 3: Nested Series-Parallel</p>
-<p>Circuit: A resistor <span class="arithmatex">\(R_1 = 2 , \Omega\)</span> in series with a parallel combination of <span class="arithmatex">\(R_2 = 3 , \Omega\)</span> and <span class="arithmatex">\(R_3 = 6 , \Omega\)</span> between nodes 0 and 2 via node 1.
-Calculation:
-Parallel part:[\frac{1}{R_{parallel}} = \frac{1}{R_2} + \frac{1}{R_3} = \frac{1}{3} + \frac{1}{6} = \frac{2}{6} + \frac{1}{6} = \frac{3}{6}][R_{parallel} = \frac{6}{3} = 2 , \Omega]
-Total:[R_{eq} = R_1 + R_{parallel} = 2 + 2 = 4 , \Omega]</p>
-<p>Output: Nested Series-Parallel: Equivalent Resistance = 4.00 Ω</p>
+<p><img alt="alt text" src="../Screenshot%202025-05-28%20162444.png"/></p>
 <p>Efficiency Analysis
 Time Complexity</p>
 <p>Series Reduction: Finding a series pair involves checking node degrees, which takes <span class="arithmatex">\(O(V + E)\)</span> per iteration, where <span class="arithmatex">\(V\)</span> is the number of nodes and <span class="arithmatex">\(E\)</span> is the number of edges.
