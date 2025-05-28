@@ -189,9 +189,8 @@ The Lorentz force is fundamental in many physical systems:</li>
 <p>Particle Accelerators (e.g., Cyclotrons): Magnetic fields cause particles to follow circular paths, while electric fields accelerate them.
 Plasma Confinement (e.g., Tokamaks): Crossed electric and magnetic fields confine charged particles in fusion devices.
 Astrophysical Phenomena: Charged particles in Earth's magnetosphere follow helical paths due to the planet's magnetic field.</p>
-<p>In these systems:</p>
-<p>Electric Fields ($ \mathbf{E} <span class="arithmatex">\(): Accelerate particles, contributing to a linear force component.
-Magnetic Fields (\)</span> \mathbf{B} $): Cause particles to gyrate, leading to circular or helical motion via the $ \mathbf{v} \times \mathbf{B} $ term.</p>
+<p>In these systems:
+<img alt="alt text" src="../Screenshot%202025-05-28%20164432.png"/></p>
 <ol>
 <li>Simulate Particle Motion
 We simulate the motion of a charged particle using Python. The equation of motion is derived from Newton's second law:
@@ -203,9 +202,7 @@ $$ \frac{d\mathbf{r}}{dt} = \mathbf{v} $$
 where $ \mathbf{r} $ is the position of the particle. We solve these differential equations numerically using the Runge-Kutta 4th-order (RK4) method for better accuracy compared to the Euler method.
 Field Configurations</li>
 </ol>
-<p>Uniform Magnetic Field: $ \mathbf{B} = (0, 0, B_z) $, $ \mathbf{E} = 0 $.
-Combined Fields: $ \mathbf{E} = (E_x, 0, 0) $, $ \mathbf{B} = (0, 0, B_z) $.
-Crossed Fields: $ \mathbf{E} $ and $ \mathbf{B} $ are perpendicular, leading to drift motion.</p>
+<p><img alt="alt text" src="../Screenshot%202025-05-28%20164627.png"/></p>
 <p>Theoretical Larmor Radius: 1.48e-03 m
 Theoretical Drift Velocity (E x B): -1.00e+03 m/s (y-direction)
 <img alt="alt text" src="../image-1.png"/></p>
@@ -213,17 +210,8 @@ Theoretical Drift Velocity (E x B): -1.00e+03 m/s (y-direction)
 <ol>
 <li>Parameter Exploration</li>
 </ol>
-<p>We explore how the following parameters affect the trajectory:</p>
-<p>Field Strengths ($ \mathbf{E}, \mathbf{B} $):
-Increasing $ B_z $ tightens the circular motion (smaller Larmor radius, 
-$ r_L = \frac{mv_\perp}{|q|B} $).
-Increasing $ E_x $ enhances the drift velocity in crossed fields, given by $ \mathbf{v}_d = \frac{\mathbf{E} \times \mathbf{B}}{B^2} $.</p>
-<p>Initial Velocity ($ \mathbf{v} $): Higher $ v_\perp $ (perpendicular to $ \mathbf{B} <span class="arithmatex">\() increases the Larmor radius.
-Charge (\)</span> q <span class="arithmatex">\() and Mass (\)</span> m $): Larger $ |q| $ or smaller $ m $ results in tighter gyration.</p>
-<p>Observations</p>
-<p>Uniform Magnetic Field: The particle follows a helical path (circular in the x-y plane, linear along z if $ v_z \neq 0 $).
-Crossed Fields: The particle exhibits drift motion along the y-axis due to the $ 
-\mathbf{E} \times \mathbf{B} $ effect, superimposed on the helical motion.</p>
+<p><img alt="alt text" src="../Screenshot%202025-05-28%20164759.png"/></p>
+<p><img alt="alt text" src="../Screenshot%202025-05-28%20165047.png"/></p>
 <ol>
 <li>Visualizations</li>
 </ol>
@@ -233,13 +221,13 @@ Crossed Fields: The particle exhibits drift motion along the y-axis due to the $
 <ol>
 <li>Discussion: Relevance to Practical Systems</li>
 </ol>
-<p>Cyclotrons: The simulation's helical motion in a uniform $ \mathbf{B} $-field mirrors the circular paths in cyclotrons, where particles are accelerated by an oscillating $ \mathbf{E} $-field.
+<p>Cyclotrons: The simulation's helical motion in a uniform mirrors the circular paths in cyclotrons, where particles are accelerated by an oscillating .
 Magnetic Traps: Crossed fields in our simulation produce drift motion, similar to how magnetic traps confine plasma by inducing controlled drifts.
 The observed Larmor radius and drift velocity align with theoretical expectations, validating the simulation's accuracy for real-world applications.</p>
 <ol>
 <li>Suggestions for Extension</li>
 </ol>
-<p>Simulate non-uniform fields (e.g., $ \mathbf{B} $ varying with position) to model more complex systems like magnetic bottles.
+<p>Simulate non-uniform fields (e.g., varying with position) to model more complex systems like magnetic bottles.
 Introduce relativistic effects for high-speed particles, modifying the Lorentz force equation.
 Add multiple particles to study collective behavior, such as in plasmas.</p>
 <p>This simulation provides an intuitive understanding of the Lorentz force and its applications, bridging theoretical physics with practical systems.</p>
