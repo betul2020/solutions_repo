@@ -27,7 +27,7 @@ Consider a unit circle (radius 1) centered at the origin, inscribed in a square 
 
 If we randomly generate points in the square, the probability a point lies inside the circle (i.e., $x^2 + y^2 \leq 1$) equals this ratio. Thus:
 
-[ \pi \approx 4 \cdot \frac{\text{Number of points inside circle}}{\text{Total number of points}} ]
+$$[ \pi \approx 4 \cdot \frac{\text{Number of points inside circle}}{\text{Total number of points}} ]$$
 
 Buffon's Needle Method
 
