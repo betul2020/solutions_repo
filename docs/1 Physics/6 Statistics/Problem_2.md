@@ -1,86 +1,70 @@
 # Problem 2
-Below is a comprehensive solution to **Problem 2: Escape Velocities and Cosmic Velocities**, structured as requested. The solution includes a Markdown document with explanations, a Python script for calculations, and graphical representations using matplotlib. The current date is considered as 01:51 AM CEST on Wednesday, June 11, 2025, as provided.
+Estimating Pi Using Monte Carlo Methods and Buffon's Needle
 
----
+1. Motivation
 
-### Markdown Document: Escape Velocities and Cosmic Velocities
-
-#### Motivation
-The concept of escape velocity is crucial for understanding the conditions required to leave a celestial body's gravitational influence. Extending this concept, the first, second, and third cosmic velocities define the thresholds for orbiting, escaping, and leaving a star system. These principles underpin modern space exploration, from launching satellites to interplanetary missions.
-
-#### Task
-- Define the first, second, and third cosmic velocities, explaining their physical meaning.
-- Analyze the mathematical derivations and parameters affecting these velocities.
-- Calculate and visualize these velocities for different celestial bodies like Earth, Mars, and Jupiter.
-- Discuss their importance in space exploration, including launching satellites, missions to other planets, and potential interstellar travel.
-
-#### Deliverables
-- A Markdown document with a Python script or notebook implementing the simulations.
-- A detailed explanation of the subjects.
-- Graphical representations of escape velocities and cosmic velocities for various celestial bodies.
-
----
-
-### Detailed Explanation
-
-#### Definitions and Physical Meaning
-1. **First Cosmic Velocity (\( v_1 \))**: The minimum velocity required to maintain a stable circular orbit around a celestial body. It arises from equating the gravitational force to the centripetal force: \( \frac{GMm}{R^2} = \frac{mv^2}{R} \), leading to \( v_1 = \sqrt{\frac{GM}{R}} \), where \( G \) is the gravitational constant, \( M \) is the mass of the body, and \( R \) is the orbital radius.
-2. **Second Cosmic Velocity (\( v_2 \))**: The escape velocity, the speed needed to break free from a body's gravitational pull, derived from energy conservation by setting total energy to zero at infinity: \( v_2 = \sqrt{\frac{2GM}{R}} \).
-3. **Third Cosmic Velocity (\( v_3 \))**: The velocity required to escape the gravitational influence of a star system (e.g., the Solar System), considering the combined mass of the star (Sun) and the planet: \( v_3 = \sqrt{\frac{2G(M_{\text{star}} + M_{\text{planet}})}{R}} \).
-
-#### Mathematical Derivations and Parameters
-- **Parameters**: \( G = 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \), mass (\( M \)), and radius (\( R \)) of the celestial body. For \( v_3 \), the distance is typically the planet's orbital radius around the star.
-- **Derivations**:
-  - \( v_1 \): From \( \frac{GM}{R^2} = \frac{v^2}{R} \), solving for \( v \) gives \( v_1 = \sqrt{\frac{GM}{R}} \).
-  - \( v_2 \): Kinetic energy (\( \frac{1}{2}mv^2 \)) equals gravitational potential energy (\( \frac{GMm}{R} \)) at escape, leading to \( v_2 = \sqrt{\frac{2GM}{R}} \).
-  - \( v_3 \): Extends \( v_2 \) by including the star's mass, using the orbital radius as \( R \).
-
-#### Calculations and Visualizations
-The Python script below calculates these velocities for Earth, Mars, and Jupiter, using approximate masses and radii.
-
-#### Importance in Space Exploration
-- **Satellites**: \( v_1 \) is used to place satellites in low Earth orbit (e.g., ~7.8 km/s for Earth).
-- **Planetary Missions**: \( v_2 \) is critical for launch vehicles to escape a planet (e.g., 11.2 km/s for Earth).
-- **Interstellar Travel**: \( v_3 \) (~16.6 km/s from Earth) is a baseline for leaving the Solar System, relevant for missions like Voyager.
-
----
-
-### Python Script
-
-![alt text](<../2 Gravity/image-4.png>)
+Monte Carlo simulations leverage randomness to solve problems or estimate values, offering an intuitive way to approximate mathematical constants like $\pi$. This task explores two methods to estimate $\pi$:
 
 
-#### Output (Sample)
-```
-Earth:
-  v1 (orbital) = 7900.57 m/s
-  v2 (escape) = 11179.10 m/s
-  v3 (solar escape) = 16618.04 m/s
-Mars:
-  v1 (orbital) = 3396.72 m/s
-  v2 (escape) = 4805.27 m/s
-  v3 (solar escape) = 18451.77 m/s
-Jupiter:
-  v1 (orbital) = 59460.23 m/s
-  v2 (escape) = 84103.67 m/s
-  v3 (solar escape) = 42414.38 m/s
-```
 
-#### Graphical Representation
-The bar chart above compares \( v_1 \), \( v_2 \), and \( v_3 \) for Earth, Mars, and Jupiter in km/s, highlighting the increasing velocity requirements.
 
----
 
-### Discussion
+Circle-Based Monte Carlo Method: Using the ratio of points inside a circle to points in a square.
 
-- **Satellites**: Earth's \( v_1 \approx 7.9 \, \text{km/s} \) enables geostationary orbits, critical for communication satellites.
-- **Planetary Missions**: \( v_2 \) (e.g., 11.2 km/s for Earth) determines launch energy for Mars rovers or lunar missions.
-- **Interstellar Travel**: \( v_3 \) (~16.6 km/s from Earth) is a stepping stone for probes like Voyager, though advanced propulsion is needed for true interstellar travel.
 
-The visualizations aid in comparing these velocities across bodies, emphasizing Jupiter's high \( v_1 \) and \( v_2 \) due to its mass, and the consistent \( v_3 \) influenced by the Sun's mass.
 
---- 
+Buffon's Needle Method: Simulating needle drops to estimate $\pi$ based on the probability of crossing parallel lines.
 
-This solution meets all deliverables, providing a detailed explanation, a working Python script, and a graphical output.
+These methods bridge probability, geometry, and numerical computation, providing practical insights into convergence rates and computational efficiency.
+
+2. Theoretical Foundation
+
+Circle-Based Monte Carlo Method
+
+Consider a unit circle (radius 1) centered at the origin, inscribed in a square with side length 2 (spanning $x, y \in [-1, 1]$). The area of the circle is $\pi \cdot 1^2 = \pi$, and the area of the square is $2 \cdot 2 = 4$. The ratio of these areas is:
+
+$$[ \frac{\text{Area of circle}}{\text{Area of square}} = \frac{\pi}{4}]$$
+
+If we randomly generate points in the square, the probability a point lies inside the circle (i.e., $x^2 + y^2 \leq 1$) equals this ratio. Thus:
+
+$$[ \pi \approx 4 \cdot \frac{\text{Number of points inside circle}}{\text{Total number of points}} ]$$
+
+Buffon's Needle Method
+
+In Buffon's Needle problem, a needle of length $l$ is dropped onto a plane with parallel lines spaced $d$ units apart, where $l \leq d$. The probability that the needle crosses a line depends on its position and orientation. The position of the needle's center is uniformly distributed between 0 and $d$, and its angle $\theta$ relative to the lines is uniformly distributed between 0 and $\pi$.
+
+The distance from the needle’s center to the nearest line is $y \in [0, \frac{d}{2}]$, and the needle crosses a line if $y \leq \frac{l}{2} \sin(\theta)$. The probability of crossing is derived as:
+
+[ $$P(\text{crossing}) = \frac{2}{\pi} \cdot \frac{l}{d}$$ ] 
+
+For $l = d$, this simplifies to $P = \frac{2}{\pi}$. Thus:
+
+$$[ \pi \approx \frac{2 \cdot \text{Number of throws}}{\text{Number of crossings}} ]$$
+
+3. Simulation and Visualization
+
+Circle-Based Monte Carlo Simulation
+
+We generate random points in a 2D square and count how many fall inside the unit circle, then estimate $\pi$. The simulation is visualized by plotting the points, distinguishing those inside and outside the circle.
+
+Buffon's Needle Simulation
+
+We simulate dropping a needle on a plane with parallel lines, count the crossings, and estimate $\pi$. The needle positions are visualized relative to the lines.
+
+4. Implementation: Python Code
+
+Below are Python scripts for both methods, including simulations and visualizations.
+
+Circle-Based Monte Carlo Method
+
+ import numpy as np import matplotlib.pyplot as plt
+
+Buffon's Needle Estimates of π:
+N = 100: π ≈ 3.38983
+N = 1000: π ≈ 3.19489
+N = 10000: π ≈ 3.15507
+N = 100000: π ≈ 3.14683
+![alt text](image-1.png)
+![alt text](image-2.png)
 
 
