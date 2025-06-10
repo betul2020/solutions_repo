@@ -23,7 +23,7 @@ Circle-Based Monte Carlo Method
 
 Consider a unit circle (radius 1) centered at the origin, inscribed in a square with side length 2 (spanning $x, y \in [-1, 1]$). The area of the circle is $\pi \cdot 1^2 = \pi$, and the area of the square is $2 \cdot 2 = 4$. The ratio of these areas is:
 
-[$$ \frac{\text{Area of circle}}{\text{Area of square}} = \frac{\pi}{4}$$ ]
+$$[ \frac{\text{Area of circle}}{\text{Area of square}} = \frac{\pi}{4}]$$
 
 If we randomly generate points in the square, the probability a point lies inside the circle (i.e., $x^2 + y^2 \leq 1$) equals this ratio. Thus:
 
@@ -39,7 +39,7 @@ The distance from the needle’s center to the nearest line is $y \in [0, \frac{
 
 For $l = d$, this simplifies to $P = \frac{2}{\pi}$. Thus:
 
-[ \pi \approx \frac{2 \cdot \text{Number of throws}}{\text{Number of crossings}} ]
+$$[ \pi \approx \frac{2 \cdot \text{Number of throws}}{\text{Number of crossings}} ]$$
 
 3. Simulation and Visualization
 
