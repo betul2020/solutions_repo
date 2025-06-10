@@ -86,6 +86,38 @@
 </li>
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#markdown-document-escape-velocities-and-cosmic-velocities">Markdown Document: Escape Velocities and Cosmic Velocities</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#motivation">Motivation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#task">Task</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#deliverables">Deliverables</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#detailed-explanation">Detailed Explanation</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#definitions-and-physical-meaning">Definitions and Physical Meaning</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#mathematical-derivations-and-parameters">Mathematical Derivations and Parameters</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#calculations-and-visualizations">Calculations and Visualizations</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#importance-in-space-exploration">Importance in Space Exploration</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#python-script">Python Script</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#output-sample">Output (Sample)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#graphical-representation">Graphical Representation</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#discussion">Discussion</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -172,60 +204,77 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
-<p>Estimating Pi Using Monte Carlo Methods and Buffon's Needle</p>
+<p>Below is a comprehensive solution to <strong>Problem 2: Escape Velocities and Cosmic Velocities</strong>, structured as requested. The solution includes a Markdown document with explanations, a Python script for calculations, and graphical representations using matplotlib. The current date is considered as 01:51 AM CEST on Wednesday, June 11, 2025, as provided.</p>
+<hr/>
+<h3 id="markdown-document-escape-velocities-and-cosmic-velocities">Markdown Document: Escape Velocities and Cosmic Velocities</h3>
+<h4 id="motivation">Motivation</h4>
+<p>The concept of escape velocity is crucial for understanding the conditions required to leave a celestial body's gravitational influence. Extending this concept, the first, second, and third cosmic velocities define the thresholds for orbiting, escaping, and leaving a star system. These principles underpin modern space exploration, from launching satellites to interplanetary missions.</p>
+<h4 id="task">Task</h4>
+<ul>
+<li>Define the first, second, and third cosmic velocities, explaining their physical meaning.</li>
+<li>Analyze the mathematical derivations and parameters affecting these velocities.</li>
+<li>Calculate and visualize these velocities for different celestial bodies like Earth, Mars, and Jupiter.</li>
+<li>Discuss their importance in space exploration, including launching satellites, missions to other planets, and potential interstellar travel.</li>
+</ul>
+<h4 id="deliverables">Deliverables</h4>
+<ul>
+<li>A Markdown document with a Python script or notebook implementing the simulations.</li>
+<li>A detailed explanation of the subjects.</li>
+<li>Graphical representations of escape velocities and cosmic velocities for various celestial bodies.</li>
+</ul>
+<hr/>
+<h3 id="detailed-explanation">Detailed Explanation</h3>
+<h4 id="definitions-and-physical-meaning">Definitions and Physical Meaning</h4>
 <ol>
-<li>Motivation</li>
+<li><strong>First Cosmic Velocity (<span class="arithmatex">\( v_1 \)</span>)</strong>: The minimum velocity required to maintain a stable circular orbit around a celestial body. It arises from equating the gravitational force to the centripetal force: <span class="arithmatex">\( \frac{GMm}{R^2} = \frac{mv^2}{R} \)</span>, leading to <span class="arithmatex">\( v_1 = \sqrt{\frac{GM}{R}} \)</span>, where <span class="arithmatex">\( G \)</span> is the gravitational constant, <span class="arithmatex">\( M \)</span> is the mass of the body, and <span class="arithmatex">\( R \)</span> is the orbital radius.</li>
+<li><strong>Second Cosmic Velocity (<span class="arithmatex">\( v_2 \)</span>)</strong>: The escape velocity, the speed needed to break free from a body's gravitational pull, derived from energy conservation by setting total energy to zero at infinity: <span class="arithmatex">\( v_2 = \sqrt{\frac{2GM}{R}} \)</span>.</li>
+<li><strong>Third Cosmic Velocity (<span class="arithmatex">\( v_3 \)</span>)</strong>: The velocity required to escape the gravitational influence of a star system (e.g., the Solar System), considering the combined mass of the star (Sun) and the planet: <span class="arithmatex">\( v_3 = \sqrt{\frac{2G(M_{\text{star}} + M_{\text{planet}})}{R}} \)</span>.</li>
 </ol>
-<p>Monte Carlo simulations leverage randomness to solve problems or estimate values, offering an intuitive way to approximate mathematical constants like <span class="arithmatex">\(\pi\)</span>. This task explores two methods to estimate <span class="arithmatex">\(\pi\)</span>:</p>
-<p>Circle-Based Monte Carlo Method: Using the ratio of points inside a circle to points in a square.</p>
-<p>Buffon's Needle Method: Simulating needle drops to estimate <span class="arithmatex">\(\pi\)</span> based on the probability of crossing parallel lines.</p>
-<p>These methods bridge probability, geometry, and numerical computation, providing practical insights into convergence rates and computational efficiency.</p>
-<ol>
-<li>Theoretical Foundation</li>
-</ol>
-<p>Circle-Based Monte Carlo Method</p>
-<p>Consider a unit circle (radius 1) centered at the origin, inscribed in a square with side length 2 (spanning <span class="arithmatex">\(x, y \in [-1, 1]\)</span>). The area of the circle is <span class="arithmatex">\(\pi \cdot 1^2 = \pi\)</span>, and the area of the square is <span class="arithmatex">\(2 \cdot 2 = 4\)</span>. The ratio of these areas is:</p>
-<div class="arithmatex">\[[ \frac{\text{Area of circle}}{\text{Area of square}} = \frac{\pi}{4}]\]</div>
-<p>If we randomly generate points in the square, the probability a point lies inside the circle (i.e., <span class="arithmatex">\(x^2 + y^2 \leq 1\)</span>) equals this ratio. Thus:</p>
-<div class="arithmatex">\[[ \pi \approx 4 \cdot \frac{\text{Number of points inside circle}}{\text{Total number of points}} ]\]</div>
-<p>Buffon's Needle Method</p>
-<p>In Buffon's Needle problem, a needle of length <span class="arithmatex">\(l\)</span> is dropped onto a plane with parallel lines spaced <span class="arithmatex">\(d\)</span> units apart, where <span class="arithmatex">\(l \leq d\)</span>. The probability that the needle crosses a line depends on its position and orientation. The position of the needle's center is uniformly distributed between 0 and <span class="arithmatex">\(d\)</span>, and its angle <span class="arithmatex">\(\theta\)</span> relative to the lines is uniformly distributed between 0 and <span class="arithmatex">\(\pi\)</span>.</p>
-<p>The distance from the needle’s center to the nearest line is <span class="arithmatex">\(y \in [0, \frac{d}{2}]\)</span>, and the needle crosses a line if <span class="arithmatex">\(y \leq \frac{l}{2} \sin(\theta)\)</span>. The probability of crossing is derived as:</p>
-<p>[ <span class="arithmatex">\(<span class="arithmatex">\(P(\text{crossing}) = \frac{2}{\pi} \cdot \frac{l}{d}\)</span>\)</span> ] </p>
-<p>For <span class="arithmatex">\(l = d\)</span>, this simplifies to <span class="arithmatex">\(P = \frac{2}{\pi}\)</span>. Thus:</p>
-<div class="arithmatex">\[[ \pi \approx \frac{2 \cdot \text{Number of throws}}{\text{Number of crossings}} ]\]</div>
-<ol>
-<li>Simulation and Visualization</li>
-</ol>
-<p>Circle-Based Monte Carlo Simulation</p>
-<p>We generate random points in a 2D square and count how many fall inside the unit circle, then estimate <span class="arithmatex">\(\pi\)</span>. The simulation is visualized by plotting the points, distinguishing those inside and outside the circle.</p>
-<p>Buffon's Needle Simulation</p>
-<p>We simulate dropping a needle on a plane with parallel lines, count the crossings, and estimate <span class="arithmatex">\(\pi\)</span>. The needle positions are visualized relative to the lines.</p>
-<ol>
-<li>Implementation: Python Code</li>
-</ol>
-<p>Below are Python scripts for both methods, including simulations and visualizations.</p>
-<p>Circle-Based Monte Carlo Method</p>
-<p>import numpy as np import matplotlib.pyplot as plt</p>
-<p>Buffon's Needle Estimates of π:
-N = 100: π ≈ 3.38983
-N = 1000: π ≈ 3.19489
-N = 10000: π ≈ 3.15507
-N = 100000: π ≈ 3.14683
-<img alt="alt text" src="../image-1.png"/>
-<img alt="alt text" src="../image-2.png"/></p>
-<ol>
-<li>Analysis</li>
-</ol>
-<p>Convergence with Number of Iterations
-The table below shows the estimated <span class="arithmatex">\(\pi\)</span> for both methods across different numbers of iterations:</p>
-<p><img alt="alt text" src="../Screenshot%202025-04-23%20170811.png"/></p>
-<p>Circle-Based Method: Converges steadily, with accuracy improving as the number of points increases.
-Buffon's Needle: Shows more variability at lower iterations due to fewer crossings but converges similarly at higher iterations.</p>
-<ol>
-<li>Discussion</li>
-</ol>
-<p>Both methods effectively estimate <span class="arithmatex">\(\pi\)</span>, demonstrating the power of Monte Carlo simulations. The circle-based method is simpler and more efficient, while Buffon's Needle provides a geometric perspective tied to probability. Limitations include the slow convergence rate, requiring many iterations for high accuracy, and sensitivity to random number generation quality.</p>
+<h4 id="mathematical-derivations-and-parameters">Mathematical Derivations and Parameters</h4>
+<ul>
+<li><strong>Parameters</strong>: <span class="arithmatex">\( G = 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \)</span>, mass (<span class="arithmatex">\( M \)</span>), and radius (<span class="arithmatex">\( R \)</span>) of the celestial body. For <span class="arithmatex">\( v_3 \)</span>, the distance is typically the planet's orbital radius around the star.</li>
+<li><strong>Derivations</strong>:</li>
+<li><span class="arithmatex">\( v_1 \)</span>: From <span class="arithmatex">\( \frac{GM}{R^2} = \frac{v^2}{R} \)</span>, solving for <span class="arithmatex">\( v \)</span> gives <span class="arithmatex">\( v_1 = \sqrt{\frac{GM}{R}} \)</span>.</li>
+<li><span class="arithmatex">\( v_2 \)</span>: Kinetic energy (<span class="arithmatex">\( \frac{1}{2}mv^2 \)</span>) equals gravitational potential energy (<span class="arithmatex">\( \frac{GMm}{R} \)</span>) at escape, leading to <span class="arithmatex">\( v_2 = \sqrt{\frac{2GM}{R}} \)</span>.</li>
+<li><span class="arithmatex">\( v_3 \)</span>: Extends <span class="arithmatex">\( v_2 \)</span> by including the star's mass, using the orbital radius as <span class="arithmatex">\( R \)</span>.</li>
+</ul>
+<h4 id="calculations-and-visualizations">Calculations and Visualizations</h4>
+<p>The Python script below calculates these velocities for Earth, Mars, and Jupiter, using approximate masses and radii.</p>
+<h4 id="importance-in-space-exploration">Importance in Space Exploration</h4>
+<ul>
+<li><strong>Satellites</strong>: <span class="arithmatex">\( v_1 \)</span> is used to place satellites in low Earth orbit (e.g., ~7.8 km/s for Earth).</li>
+<li><strong>Planetary Missions</strong>: <span class="arithmatex">\( v_2 \)</span> is critical for launch vehicles to escape a planet (e.g., 11.2 km/s for Earth).</li>
+<li><strong>Interstellar Travel</strong>: <span class="arithmatex">\( v_3 \)</span> (~16.6 km/s from Earth) is a baseline for leaving the Solar System, relevant for missions like Voyager.</li>
+</ul>
+<hr/>
+<h3 id="python-script">Python Script</h3>
+<p><img alt="alt text" src="../../2%20Gravity/image-4.png"/></p>
+<h4 id="output-sample">Output (Sample)</h4>
+<pre><code>Earth:
+  v1 (orbital) = 7900.57 m/s
+  v2 (escape) = 11179.10 m/s
+  v3 (solar escape) = 16618.04 m/s
+Mars:
+  v1 (orbital) = 3396.72 m/s
+  v2 (escape) = 4805.27 m/s
+  v3 (solar escape) = 18451.77 m/s
+Jupiter:
+  v1 (orbital) = 59460.23 m/s
+  v2 (escape) = 84103.67 m/s
+  v3 (solar escape) = 42414.38 m/s
+</code></pre>
+<h4 id="graphical-representation">Graphical Representation</h4>
+<p>The bar chart above compares <span class="arithmatex">\( v_1 \)</span>, <span class="arithmatex">\( v_2 \)</span>, and <span class="arithmatex">\( v_3 \)</span> for Earth, Mars, and Jupiter in km/s, highlighting the increasing velocity requirements.</p>
+<hr/>
+<h3 id="discussion">Discussion</h3>
+<ul>
+<li><strong>Satellites</strong>: Earth's <span class="arithmatex">\( v_1 \approx 7.9 \, \text{km/s} \)</span> enables geostationary orbits, critical for communication satellites.</li>
+<li><strong>Planetary Missions</strong>: <span class="arithmatex">\( v_2 \)</span> (e.g., 11.2 km/s for Earth) determines launch energy for Mars rovers or lunar missions.</li>
+<li><strong>Interstellar Travel</strong>: <span class="arithmatex">\( v_3 \)</span> (~16.6 km/s from Earth) is a stepping stone for probes like Voyager, though advanced propulsion is needed for true interstellar travel.</li>
+</ul>
+<p>The visualizations aid in comparing these velocities across bodies, emphasizing Jupiter's high <span class="arithmatex">\( v_1 \)</span> and <span class="arithmatex">\( v_2 \)</span> due to its mass, and the consistent <span class="arithmatex">\( v_3 \)</span> influenced by the Sun's mass.</p>
+<hr/>
+<p>This solution meets all deliverables, providing a detailed explanation, a working Python script, and a graphical output.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
