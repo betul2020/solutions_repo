@@ -23,7 +23,7 @@ Circle-Based Monte Carlo Method
 
 Consider a unit circle (radius 1) centered at the origin, inscribed in a square with side length 2 (spanning $x, y \in [-1, 1]$). The area of the circle is $\pi \cdot 1^2 = \pi$, and the area of the square is $2 \cdot 2 = 4$. The ratio of these areas is:
 
-[ \frac{\text{Area of circle}}{\text{Area of square}} = \frac{\pi}{4} ]
+[$$ \frac{\text{Area of circle}}{\text{Area of square}} = \frac{\pi}{4}$$ ]
 
 If we randomly generate points in the square, the probability a point lies inside the circle (i.e., $x^2 + y^2 \leq 1$) equals this ratio. Thus:
 
@@ -35,7 +35,7 @@ In Buffon's Needle problem, a needle of length $l$ is dropped onto a plane with 
 
 The distance from the needle’s center to the nearest line is $y \in [0, \frac{d}{2}]$, and the needle crosses a line if $y \leq \frac{l}{2} \sin(\theta)$. The probability of crossing is derived as:
 
-[ $$P(\text{crossing}) = \frac{2}{\pi} \cdot \frac{l}{d}$$]
+[ $$P(\text{crossing}) = \frac{2}{\pi} \cdot \frac{l}{d}$$ ] 
 
 For $l = d$, this simplifies to $P = \frac{2}{\pi}$. Thus:
 
