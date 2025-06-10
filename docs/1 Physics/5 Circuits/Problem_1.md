@@ -87,7 +87,23 @@ Two resistors, $R_1 = 2 , \Omega$ and $R_2 = 3 , \Omega$, in series between node
 Calculation:[R_{eq} = R_1 + R_2 = 2 + 3 = 5 , \Omega]
 Output: Simple Series: Equivalent Resistance = 5.00 Ω
 
-![alt text](<Screenshot 2025-05-28 162444.png>)
+# First Cosmic Velocity
+
+For a circular orbit: \( v_1 = \sqrt{\frac{GM}{R}} \)
+
+This arises from equating gravitational force to centripetal force: \( \frac{GMm}{R^2} = \frac{mv^2}{R} \)
+
+# Second Cosmic Velocity
+
+Escape velocity is derived from conservation of energy, setting total energy to zero at infinity: \( v_2 = \sqrt{\frac{2GM}{R}} \)
+
+# Third Cosmic Velocity
+
+To escape the Solar System, consider the Sun's mass (\( M_{\text{sun}} = 1.989 \times 10^{30} \, \text{kg} \)) and the distance from the Sun (i.e., Earth's orbital radius \( R \approx 1.496 \times 10^{11} \, \text{m} \), \( M_{\text{Earth}} = 5.972 \times 10^{24} \, \text{kg} \)):
+
+\[
+v_3 = \sqrt{\frac{2G(M_{\text{sun}} + M_{\text{Earth}})}{R}}
+\]
 
 Efficiency Analysis
 Time Complexity
