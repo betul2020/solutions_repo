@@ -123,6 +123,8 @@ $$
 $$
 
 The result differs by 3.5 standard deviations from the expected value, suggesting unaccounted systematic errors.
+
+![alt text](image-3.png)
 ### Explanation
 - **Data**: Hypothetical values for pendulum length \( L \), its uncertainty \( \Delta L \), and 10 measurements of \( T_{10} \) are provided.
 - **Calculations**:
