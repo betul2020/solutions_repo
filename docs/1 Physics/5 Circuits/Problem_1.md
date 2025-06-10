@@ -24,7 +24,35 @@ Identify a node with degree 1 (connected to one neighbor) whose neighbor has deg
 For resistors $R_1$ and $R_2$ in series, replace them with a single resistor with resistance:[R_{eq} = R_1 + R_2]
 Update the graph by removing the degree-2 node and adding an edge with the summed resistance.
 
-![alt text](image-4.png)
+dentify two nodes with multiple edges between them, indicating parallel resistors. For resistors (R_1, R_2, ..., R_n) in parallel, compute the equivalent resistance using:
+1/R_eq = 1/R_1 + 1/R_2 + ... + 1/R_n
+Replace the multiple edges with a single edge of equivalent resistance.
+
+Circuit
+Two resistors, (R_1 = 2 Ohm) and (R_2 = 3 Ohm), in parallel between nodes 0 and 1.
+
+Calculation
+1/R_eq = 1/R_1 + 1/R_2 = 1/2 + 1/3 = 3/6 + 2/6 = 5/6 Ohm^-1
+R_eq = 6/5 = 1.2 Ohm
+
+Output:
+Simple Parallel: Equivalent Resistance = (1.20 Ohm)
+
+Example 3: Nested Series-Parallel
+
+Circuit
+A resistor (R_1 = 2 Ohm) in series with a parallel combination of (R_2 = 3 Ohm) and (R_3 = 6 Ohm), between nodes 0 and 2 via node 1.
+
+Calculation
+Parallel part:
+1/R_parallel = 1/R_2 + 1/R_3 = 1/3 + 1/6 = 2/6 + 1/6 = 3/6 Ohm^-1
+R_parallel = 2 Ohm
+
+Total:
+R_total = R_1 + R_parallel = 2 + 2 = 4 Ohm
+
+
+
 **Output**: Nested Series-Parallel: Equivalent Resistance = \( 4.00 \, \Omega \)
 
 Iterative Simplification:
