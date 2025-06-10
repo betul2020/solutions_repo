@@ -185,7 +185,7 @@
 </ol>
 <p>Circle-Based Monte Carlo Method</p>
 <p>Consider a unit circle (radius 1) centered at the origin, inscribed in a square with side length 2 (spanning <span class="arithmatex">\(x, y \in [-1, 1]\)</span>). The area of the circle is <span class="arithmatex">\(\pi \cdot 1^2 = \pi\)</span>, and the area of the square is <span class="arithmatex">\(2 \cdot 2 = 4\)</span>. The ratio of these areas is:</p>
-<p>[$$ \frac{\text{Area of circle}}{\text{Area of square}} = \frac{\pi}{4}$$ ]</p>
+<div class="arithmatex">\[[ \frac{\text{Area of circle}}{\text{Area of square}} = \frac{\pi}{4}]\]</div>
 <p>If we randomly generate points in the square, the probability a point lies inside the circle (i.e., <span class="arithmatex">\(x^2 + y^2 \leq 1\)</span>) equals this ratio. Thus:</p>
 <div class="arithmatex">\[[ \pi \approx 4 \cdot \frac{\text{Number of points inside circle}}{\text{Total number of points}} ]\]</div>
 <p>Buffon's Needle Method</p>
@@ -193,7 +193,7 @@
 <p>The distance from the needle’s center to the nearest line is <span class="arithmatex">\(y \in [0, \frac{d}{2}]\)</span>, and the needle crosses a line if <span class="arithmatex">\(y \leq \frac{l}{2} \sin(\theta)\)</span>. The probability of crossing is derived as:</p>
 <p>[ <span class="arithmatex">\(<span class="arithmatex">\(P(\text{crossing}) = \frac{2}{\pi} \cdot \frac{l}{d}\)</span>\)</span> ] </p>
 <p>For <span class="arithmatex">\(l = d\)</span>, this simplifies to <span class="arithmatex">\(P = \frac{2}{\pi}\)</span>. Thus:</p>
-<p>[ \pi \approx \frac{2 \cdot \text{Number of throws}}{\text{Number of crossings}} ]</p>
+<div class="arithmatex">\[[ \pi \approx \frac{2 \cdot \text{Number of throws}}{\text{Number of crossings}} ]\]</div>
 <ol>
 <li>Simulation and Visualization</li>
 </ol>
