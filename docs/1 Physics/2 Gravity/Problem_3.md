@@ -1,13 +1,13 @@
 # Problem 3
 # Analysis of Payload Trajectories Near Earth
 Trajectories of a Freely Released Payload Near Earth
-Motivation
+## Motivation
 
 
 When an object is released from a moving rocket near Earth, its trajectory is influenced by initial conditions and gravitational forces. This problem combines orbital mechanics and numerical methods, making it essential for space missions involving payload deployment or reentry.
 
 
-Analysis of Trajectories
+## Analysis of Trajectories
 
 Given the initial conditions:
 
@@ -37,10 +37,18 @@ Using a simple numerical integration (Euler method) with Earth's gravitational f
 ![alt text](image-5.png)
 
 
-Relation to Orbital Scenarios
+
+## Relation to Orbital Scenarios
 
 Orbital Insertion: Requires a tangential velocity (~7.8 km/s at 200 km altitude) to achieve a stable elliptical orbit.
 Reentry: Occurs if the velocity is insufficient, causing the payload to fall back to Earth.
 Escape: Happens if the velocity exceeds <math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mrow><mi>e</mi><mi>s</mi><mi>c</mi></mrow></msub></mrow><annotation encoding="application/x-tex"> v_{esc} </annotation></semantics></math>, leading to a hyperbolic trajectory.
 
-![alt text](<Screenshot 2025-05-28 155818-1.png>)
+# Initial Condition
+
+The payload is released at an altitude of 200 km: Earth's radius: \( R_e = 6371 \, \text{km} = 6.371 \times 10^6 \, \text{m} \).
+
+- Initial radius: \( r_0 = R_e + 200 \, \text{km} = 6.571 \times 10^6 \, \text{m} \)
+- Initial position: \( \vec{r}(0, y_0) = (r_0, 0) \, \text{m} = (6.571 \times 10^6, 0) \, \text{m} \)
+- Initial velocity: Directed along the positive \( \hat{y} \) axis for simplicity
+- Simulation duration: 4 hours (\( t = 0 \, \text{s} \) to \( t = 14400 \, \text{s} \))
