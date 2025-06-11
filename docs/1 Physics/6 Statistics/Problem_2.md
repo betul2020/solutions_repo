@@ -35,11 +35,11 @@ In Buffon's Needle problem, a needle of length $l$ is dropped onto a plane with 
 
 The distance from the needle’s center to the nearest line is $y \in [0, \frac{d}{2}]$, and the needle crosses a line if $y \leq \frac{l}{2} \sin(\theta)$. The probability of crossing is derived as:
 
-[ $$P(\text{crossing}) = \frac{2}{\pi} \cdot \frac{l}{d}$$ ] 
+$$[ P(\text{crossing}) = \frac{2}{\pi} \cdot \frac{l}{d}]$$
 
 For $l = d$, this simplifies to $P = \frac{2}{\pi}$. Thus:
 
-[ \pi \approx \frac{2 \cdot \text{Number of throws}}{\text{Number of crossings}} ]
+$$[ \pi \approx \frac{2 \cdot \text{Number of throws}}{\text{Number of crossings}} ] $$
 
 3. Simulation and Visualization
 
