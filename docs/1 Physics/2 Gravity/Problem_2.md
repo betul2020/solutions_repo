@@ -1,8 +1,6 @@
-Below is a comprehensive solution to **Problem 2: Escape Velocities and Cosmic Velocities**, structured as requested. The solution includes a Markdown document with explanations, a Python script for calculations, and graphical representations using matplotlib. The current date is considered as 01:51 AM CEST on Wednesday, June 11, 2025, as provided.
+ **Problem 2: Escape Velocities and Cosmic Velocities**
 
----
-
-### Markdown Document: Escape Velocities and Cosmic Velocities
+ Escape Velocities and Cosmic Velocities
 
 #### Motivation
 The concept of escape velocity is crucial for understanding the conditions required to leave a celestial body's gravitational influence. Extending this concept, the first, second, and third cosmic velocities define the thresholds for orbiting, escaping, and leaving a star system. These principles underpin modern space exploration, from launching satellites to interplanetary missions.
@@ -62,12 +60,6 @@ Jupiter:
   v2 (escape) = 84103.67 m/s
   v3 (solar escape) = 42414.38 m/s
 ```
-
-#### Graphical Representation
-The bar chart above compares \( v_1 \), \( v_2 \), and \( v_3 \) for Earth, Mars, and Jupiter in km/s, highlighting the increasing velocity requirements.
-
----
-
 ### Discussion
 
 - **Satellites**: Earth's \( v_1 \approx 7.9 \, \text{km/s} \) enables geostationary orbits, critical for communication satellites.
