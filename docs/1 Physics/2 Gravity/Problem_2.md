@@ -1,4 +1,6 @@
- ## Problem 2: Escape Velocities and Cosmic Velocities
+ #### Problem 2
+ 
+ Escape Velocities and Cosmic Velocities
 
  Escape Velocities and Cosmic Velocities
 
