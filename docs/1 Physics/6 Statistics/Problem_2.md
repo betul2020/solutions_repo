@@ -23,7 +23,7 @@ Circle-Based Monte Carlo Method
 
 Consider a unit circle (radius 1) centered at the origin, inscribed in a square with side length 2 (spanning $x, y \in [-1, 1]$). The area of the circle is $\pi \cdot 1^2 = \pi$, and the area of the square is $2 \cdot 2 = 4$. The ratio of these areas is:
 
-$$[ \frac{\text{Area of circle}}{\text{Area of square}} = \frac{\pi}{4}]$$
+$$[ \frac{\text{Area of circle}}{\text{Area of square}} = \frac{\pi}{4}]
 
 If we randomly generate points in the square, the probability a point lies inside the circle (i.e., $x^2 + y^2 \leq 1$) equals this ratio. Thus:
 
@@ -39,7 +39,7 @@ The distance from the needle’s center to the nearest line is $y \in [0, \frac{
 
 For $l = d$, this simplifies to $P = \frac{2}{\pi}$. Thus:
 
-$$[ \pi \approx \frac{2 \cdot \text{Number of throws}}{\text{Number of crossings}} ]$$
+[ \pi \approx \frac{2 \cdot \text{Number of throws}}{\text{Number of crossings}} ]
 
 3. Simulation and Visualization
 
@@ -67,4 +67,17 @@ N = 100000: π ≈ 3.14683
 ![alt text](image-1.png)
 ![alt text](image-2.png)
 
+5. Analysis
+
+Convergence with Number of Iterations
+The table below shows the estimated $\pi$ for both methods across different numbers of iterations:
+
+![alt text](<Screenshot 2025-04-23 170811.png>)
+
+Circle-Based Method: Converges steadily, with accuracy improving as the number of points increases.
+Buffon's Needle: Shows more variability at lower iterations due to fewer crossings but converges similarly at higher iterations.
+
+6. Discussion
+
+Both methods effectively estimate $\pi$, demonstrating the power of Monte Carlo simulations. The circle-based method is simpler and more efficient, while Buffon's Needle provides a geometric perspective tied to probability. Limitations include the slow convergence rate, requiring many iterations for high accuracy, and sensitivity to random number generation quality.
 
